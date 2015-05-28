@@ -1,0 +1,29 @@
+
+*****************************
+	PROJECT NOTES
+
+
+Build Using Angular Js 
+
+DESIGN 
+
+- PARSE URL 
+
+- IF BLANK
+
+- Make http request	 - USE AJAX FOR NOW 
+	- Return first level products - ANGULAR CREATE LIST FOR FIRST LEVEL PRODUCTS
+	- initalise ng-produtCatergories
+		- Image 				- ANGUALR CALL
+		- Catergory Name
+	- build list with links
+	- add event listener
+
+- on event listener
+	- hide first level 
+	- http request
+		- return product catergories
+	- make second level products
+	- 
+
+

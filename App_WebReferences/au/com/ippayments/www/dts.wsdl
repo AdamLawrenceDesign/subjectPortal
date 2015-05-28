@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ippayments.com.au/interface/api/dts" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.ippayments.com.au/interface/api/dts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.ippayments.com.au/interface/api/dts">
+      <s:element name="SubmitSinglePayment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="trnXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitSinglePaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitSinglePaymentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitSingleCapture">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="trnXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitSingleCaptureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitSingleCaptureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitSingleRefund">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="trnXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitSingleRefundResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitSingleRefundResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitSingleVoid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="trnXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitSingleVoidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitSingleVoidResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryTransactionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IPPAPIAlive">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IPPAPIAliveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IPPAPIAliveResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySurcharge">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="querySurchargeXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySurchargeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QuerySurchargeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitPaymentSchedule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="scheduleXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitPaymentScheduleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitPaymentScheduleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePaymentSchedule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteScheduleXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePaymentScheduleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeletePaymentScheduleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryPaymentSchedules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="scheduleXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryPaymentSchedulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryPaymentSchedulesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitOpenRefund">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="trnXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitOpenRefundResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitOpenRefundResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SubmitSinglePaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitSinglePayment" />
+  </wsdl:message>
+  <wsdl:message name="SubmitSinglePaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitSinglePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitSingleCaptureSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitSingleCapture" />
+  </wsdl:message>
+  <wsdl:message name="SubmitSingleCaptureSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitSingleCaptureResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitSingleRefundSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitSingleRefund" />
+  </wsdl:message>
+  <wsdl:message name="SubmitSingleRefundSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitSingleRefundResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitSingleVoidSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitSingleVoid" />
+  </wsdl:message>
+  <wsdl:message name="SubmitSingleVoidSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitSingleVoidResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryTransaction" />
+  </wsdl:message>
+  <wsdl:message name="QueryTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPPAPIAliveSoapIn">
+    <wsdl:part name="parameters" element="tns:IPPAPIAlive" />
+  </wsdl:message>
+  <wsdl:message name="IPPAPIAliveSoapOut">
+    <wsdl:part name="parameters" element="tns:IPPAPIAliveResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuerySurchargeSoapIn">
+    <wsdl:part name="parameters" element="tns:QuerySurcharge" />
+  </wsdl:message>
+  <wsdl:message name="QuerySurchargeSoapOut">
+    <wsdl:part name="parameters" element="tns:QuerySurchargeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitPaymentScheduleSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitPaymentSchedule" />
+  </wsdl:message>
+  <wsdl:message name="SubmitPaymentScheduleSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitPaymentScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePaymentScheduleSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletePaymentSchedule" />
+  </wsdl:message>
+  <wsdl:message name="DeletePaymentScheduleSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletePaymentScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryPaymentSchedulesSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryPaymentSchedules" />
+  </wsdl:message>
+  <wsdl:message name="QueryPaymentSchedulesSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryPaymentSchedulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitOpenRefundSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitOpenRefund" />
+  </wsdl:message>
+  <wsdl:message name="SubmitOpenRefundSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitOpenRefundResponse" />
+  </wsdl:message>
+  <wsdl:portType name="dtsSoap">
+    <wsdl:operation name="SubmitSinglePayment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submits a single payment transaction and returns the result. Please note: If you are not using .Net development platform and you are getting 'soap:Fault' response, it may be necessary to HTML escape the entire string within the 'trnXML' element. In this case the 'SubmitSinglePaymentResult' string will also be HTML escaped and will need to be parsed accordingly.</wsdl:documentation>
+      <wsdl:input message="tns:SubmitSinglePaymentSoapIn" />
+      <wsdl:output message="tns:SubmitSinglePaymentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSingleCapture">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submits a single capture transaction and returns the result. Please note: If you are not using .Net development platform and you are getting 'soap:Fault' response, it may be necessary to HTML escape the entire string within the 'trnXML' element. In this case the 'SubmitSingleCaptureResult' string will also be HTML escaped and will need to be parsed accordingly.</wsdl:documentation>
+      <wsdl:input message="tns:SubmitSingleCaptureSoapIn" />
+      <wsdl:output message="tns:SubmitSingleCaptureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSingleRefund">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submits a single refund transaction and returns the result. Please note: If you are not using .Net development platform and you are getting 'soap:Fault' response, it may be necessary to HTML escape the entire string within the 'trnXML' element. In this case the 'SubmitSingleRefundResult' string will also be HTML escaped and will need to be parsed accordingly.</wsdl:documentation>
+      <wsdl:input message="tns:SubmitSingleRefundSoapIn" />
+      <wsdl:output message="tns:SubmitSingleRefundSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSingleVoid">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submits a single void and returns the result. Please note: If you are not using .Net development platform and you are getting 'soap:Fault' response, it may be necessary to HTML escape the entire string within the 'trnXML' element. In this case the 'SubmitSingleRefundResult' string will also be HTML escaped and will need to be parsed accordingly.</wsdl:documentation>
+      <wsdl:input message="tns:SubmitSingleVoidSoapIn" />
+      <wsdl:output message="tns:SubmitSingleVoidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryTransaction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Queries the payment history for matching transactions. If you are not using .Net development platform and you are getting 'soap:Fault' response, it may be necessary to HTML escape the entire string within the 'queryXML' element. In this case the 'QueryTransactionResult' string will also be HTML escaped and will need to be parsed accordingly.</wsdl:documentation>
+      <wsdl:input message="tns:QueryTransactionSoapIn" />
+      <wsdl:output message="tns:QueryTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IPPAPIAlive">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check to see if IPP API is functioning.</wsdl:documentation>
+      <wsdl:input message="tns:IPPAPIAliveSoapIn" />
+      <wsdl:output message="tns:IPPAPIAliveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuerySurcharge">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Queries the surcharge that would apply to a transaction. Please note: If you are not using .Net development platform and you are getting 'soap:Fault' response, it may be necessary to HTML escape the entire string within the 'trnXML' element. In this case the 'SubmitSinglePaymentResult' string will also be HTML escaped and will need to be parsed accordingly.</wsdl:documentation>
+      <wsdl:input message="tns:QuerySurchargeSoapIn" />
+      <wsdl:output message="tns:QuerySurchargeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitPaymentSchedule">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submits a payment schedule. Please note: If you are not using .Net development platform and you are getting 'soap:Fault' response, it may be necessary to HTML escape the entire string within the 'trnXML' element. In this case the 'SubmitSinglePaymentResult' string will also be HTML escaped and will need to be parsed accordingly.</wsdl:documentation>
+      <wsdl:input message="tns:SubmitPaymentScheduleSoapIn" />
+      <wsdl:output message="tns:SubmitPaymentScheduleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePaymentSchedule">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes an existing payment schedule. Please note: If you are not using .Net development platform and you are getting 'soap:Fault' response, it may be necessary to HTML escape the entire string within the 'trnXML' element. In this case the 'SubmitSinglePaymentResult' string will also be HTML escaped and will need to be parsed accordingly.</wsdl:documentation>
+      <wsdl:input message="tns:DeletePaymentScheduleSoapIn" />
+      <wsdl:output message="tns:DeletePaymentScheduleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryPaymentSchedules">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Queries payment schedules. Please note: If you are not using .Net development platform and you are getting 'soap:Fault' response, it may be necessary to HTML escape the entire string within the 'trnXML' element. In this case the 'SubmitSinglePaymentResult' string will also be HTML escaped and will need to be parsed accordingly.</wsdl:documentation>
+      <wsdl:input message="tns:QueryPaymentSchedulesSoapIn" />
+      <wsdl:output message="tns:QueryPaymentSchedulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitOpenRefund">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submits a Open refund transaction and returns the result. Please note: If you are not using .Net development platform and you are getting 'soap:Fault' response, it may be necessary to HTML escape the entire string within the 'trnXML' element. In this case the 'SubmitOpenRefundResult' string will also be HTML escaped and will need to be parsed accordingly.</wsdl:documentation>
+      <wsdl:input message="tns:SubmitOpenRefundSoapIn" />
+      <wsdl:output message="tns:SubmitOpenRefundSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="dtsSoap" type="tns:dtsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SubmitSinglePayment">
+      <soap:operation soapAction="http://www.ippayments.com.au/interface/api/dts/SubmitSinglePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSingleCapture">
+      <soap:operation soapAction="http://www.ippayments.com.au/interface/api/dts/SubmitSingleCapture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSingleRefund">
+      <soap:operation soapAction="http://www.ippayments.com.au/interface/api/dts/SubmitSingleRefund" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSingleVoid">
+      <soap:operation soapAction="http://www.ippayments.com.au/interface/api/dts/SubmitSingleVoid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryTransaction">
+      <soap:operation soapAction="http://www.ippayments.com.au/interface/api/dts/QueryTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IPPAPIAlive">
+      <soap:operation soapAction="http://www.ippayments.com.au/interface/api/dts/IPPAPIAlive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySurcharge">
+      <soap:operation soapAction="http://www.ippayments.com.au/interface/api/dts/QuerySurcharge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitPaymentSchedule">
+      <soap:operation soapAction="http://www.ippayments.com.au/interface/api/dts/SubmitPaymentSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePaymentSchedule">
+      <soap:operation soapAction="http://www.ippayments.com.au/interface/api/dts/DeletePaymentSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPaymentSchedules">
+      <soap:operation soapAction="http://www.ippayments.com.au/interface/api/dts/QueryPaymentSchedules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitOpenRefund">
+      <soap:operation soapAction="http://www.ippayments.com.au/interface/api/dts/SubmitOpenRefund" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="dtsSoap12" type="tns:dtsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SubmitSinglePayment">
+      <soap12:operation soapAction="http://www.ippayments.com.au/interface/api/dts/SubmitSinglePayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSingleCapture">
+      <soap12:operation soapAction="http://www.ippayments.com.au/interface/api/dts/SubmitSingleCapture" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSingleRefund">
+      <soap12:operation soapAction="http://www.ippayments.com.au/interface/api/dts/SubmitSingleRefund" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitSingleVoid">
+      <soap12:operation soapAction="http://www.ippayments.com.au/interface/api/dts/SubmitSingleVoid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryTransaction">
+      <soap12:operation soapAction="http://www.ippayments.com.au/interface/api/dts/QueryTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IPPAPIAlive">
+      <soap12:operation soapAction="http://www.ippayments.com.au/interface/api/dts/IPPAPIAlive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySurcharge">
+      <soap12:operation soapAction="http://www.ippayments.com.au/interface/api/dts/QuerySurcharge" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitPaymentSchedule">
+      <soap12:operation soapAction="http://www.ippayments.com.au/interface/api/dts/SubmitPaymentSchedule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePaymentSchedule">
+      <soap12:operation soapAction="http://www.ippayments.com.au/interface/api/dts/DeletePaymentSchedule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryPaymentSchedules">
+      <soap12:operation soapAction="http://www.ippayments.com.au/interface/api/dts/QueryPaymentSchedules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitOpenRefund">
+      <soap12:operation soapAction="http://www.ippayments.com.au/interface/api/dts/SubmitOpenRefund" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="dts">
+    <wsdl:port name="dtsSoap" binding="tns:dtsSoap">
+      <soap:address location="https://www.ippayments.com.au/interface/api/dts.asmx" />
+    </wsdl:port>
+    <wsdl:port name="dtsSoap12" binding="tns:dtsSoap12">
+      <soap12:address location="https://www.ippayments.com.au/interface/api/dts.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
