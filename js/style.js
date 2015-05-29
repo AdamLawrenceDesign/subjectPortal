@@ -48,45 +48,6 @@ $(document).ready(function() {
 	// ==============================
 	// MAKE LINKS							
 	
-	function updateLinks(info)
-	{
-		$('.index').attr( 'href' , 'index.aspx' + info );
-		$('.downloads').attr( 'href' , 'downloads.aspx' + info );
-		$('.group_img').attr( 'href' , 'group_img.aspx' + info );
-		$('.packages').attr( 'href' , 'packages.aspx' + info );
-		$('.gift_items').attr( 'href' , 'gift_items.aspx' + info );
-		$('.payment').attr( 'href' , 'payment.aspx' + info );
-		$('.thank_you').attr( 'href' , 'thank_you.aspx' + info );
-		$('.cart').attr( 'href' , 'cart.aspx' + info );
-		$('.contact_us').attr( 'href' , 'contact_us.aspx' + info );		
-	};
-
-	var url = window.location.href,
-		urlLength = url.length,
-		sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, ''),
-		search = sicCode.search('userId=');
-
-	if(search < 0 )
-	{
-		$.ajax(
-		{
-			url: 'http://192.168.0.216/AdvAPI/api/WCAPValues/Photocreate/', 
-			type: 'GET',
-			username: 'WebAPIPhotocreateUser',
-			password: '@dvw3b@piu$3r',
-			success: function(data)
-			{
-				var images = [];
-				$.each(data, 
-					function(index, value)
-					{
-						images.push('img/products/' + value.id + '.jpg');
-					}
-				);
-				var preLoadProducts = new PreLoadImages(images);
-		}
-		});
-	}
 
 	/*
 	function CreateLinks()

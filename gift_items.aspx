@@ -1,51 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page language="C#" autoeventwireup="true" inherits="_giftItems, App_Web_-tibnddc" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>				<!-- Detect Mobile devices -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			<!-- Meta Data -->
     <title>Subject Portal | Downloads</title>
-    
     <link rel="shortcut icon" href="img/camera.png"> 								
-    
     <link rel="stylesheet" href="css/screen.css?v1.1" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'/>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 
-    <script type="text/javascript" src="js/style.js?v1.1"></script>
-    <script type="text/javascript" src="js/jquery.cycle2.min.js?v1.1"></script>
-	<script type="text/javascript" src="js/events.js?v1.1"></script>
-    
-    <script type="text/javascript" src="lib/src/masonry.pkgd.min.js?v1.1"></script>
-    <script type="text/javascript" src="lib/src/preLoader.js?v1.1"></script>
-    <script type="text/javascript" src="lib/src/server-query.js?v1.1"></script>
-    <script type="text/javascript" src="lib/src/list-builder.js?v1.1"></script>
-
-
-	<script type="text/javascript">
-		if(navigator.appVersion.indexOf("MSIE 8.")!=-1 || navigator.appVersion.indexOf("MSIE 7.")!=-1)
-		alert("Notice! This website does not support versions of Internet Explorer. We recommend using Firefox, Google Chrome, Safari or Opera. Sorry for the inconvenience");
-			
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
-		  ga('create', 'UA-55035205-1', 'auto');
-		  ga('send', 'pageview');
-    </script>
-
-    <!-- If IE  -->
     <!--[if gte IE 9]>
           <link rel="stylesheet" href="css/screen_ie.css?v1.1" />
-    <![endif]-->
-	
+    <![endif]-->	
 <style>
 
     #loading-main
@@ -114,17 +80,14 @@
 		height: auto;
 	};
 </style>
-    
 </head>
 
 <body oncopy="return false" oncontextmenu="return false">
-
-<form id="Form1" runat="server" >  
-
-    <input id="hBannerImages" runat="server" type="hidden"/> <!--Banner Images-->
-    <input id="hFirstImgPortrait" runat="server" type="hidden"/> <!--First Portrait Image-->
-    <input id="hFirstImgGroup" runat="server" type="hidden"/> <!--First Group Image-->																<!-- Nav -->
-    <input id="hSchoolData" runat="server" type="hidden"/> <!--Client Information-->
+<form id="Form1" runat="server" >
+    <input id="hBannerImages" runat="server" type="hidden"/> 
+    <input id="hFirstImgPortrait" runat="server" type="hidden"/> 
+    <input id="hFirstImgGroup" runat="server" type="hidden"/> 													
+    <input id="hSchoolData" runat="server" type="hidden"/> 
 	
     <!-- Paste ASP Items not pad -->  
                
@@ -376,85 +339,105 @@
             <a href="#" class="menu_lg_toggle m_l_top txt_lg"><span class="icon-arrow-up txt_ntl_m fl_rt"></span></a>
         
         </section>     
-    </div>															
-    
+    </div>															  
 </form>
 
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="lib/prod/project.min.js?v1.1"></script>
+
+<script type="text/javascript" src="lib/src/js/masonry.pkgd.min.js?v1.1"></script>
+<!-- 
+<script type="text/javascript" src="lib/src/preLoader.js?v1.1"></script>
+-->
+<script type="text/javascript" src="lib/src/js/list-builder.js?v1.1"></script>
+
 <script>
-var website, userId, id1, id2, id3, firstName, lastName, type, webLink, type,
-    products = [],
-    distinctNames = [],
-    groupName, url;
+    var todaysDate, sic, userId, 
+        schoolData = eval("[" + document.getElementById('hSchoolData').value + "]"),
+        bannerImages = eval("[" + document.getElementById('hBannerImages').value + "]"),
+        firstPortraitData = eval("[" + document.getElementById('hFirstImgPortrait').value + "]"), 
+        firstGroupData = eval("[" + document.getElementById('hFirstImgGroup').value + "]"), 
+        portraitData = null,
+        groupData = null;
 </script>
 
 <script>
+// INIT THE APP
+$(function()
+{
+    // HIDE HEADER FOR NOW
+    $('header').css('margin-top', '-3.8em');
 
-url = window.location.href;
-groupName = url.substr(url.search("html?") + 5, url.length);
+    var website, userId, id1, id2, id3, firstName, lastName, type, webLink, type,
+        products = [],
+        distinctNames = [],
+        groupName, url;
 
-$('#resultsGroupName').css('display','none');
+    var url, urlLength, sicCode, hasId, portalType;
 
-var userData = eval("[" + document.getElementById('hFirstImgPortrait').value + "]"); 
+    // PARSE URL 
+    url = window.location.href;
+    urlLength = url.length;
+    sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
+    hasId = sicCode.search('userId=');
 
-website = 'you';
-id1 = userData[0].SIC;                      // WHEN DOING THIS FOR THE COMMUNITY PORTAL USE THE ENCRYPTED LINK
-id2 = userData[0].PrimarySubjectID;
-id3 = '';
-firstName = userData[0].FirstName;
-lastName = userData[0].LastName;
-type = 'cartItem';
-webLink = 'SIC=' + id1; 
+    var startMenuControllers = new MenuControllers();
+    var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
+    var toTop = new ToTop('#to_top');
 
-// CHECK IF THE PERSON IS LOGGED IN OR NOT 
-// userData[0].PrimarySubjectID;
 
-var getDate = new ServerRequest('http://192.168.0.216/AdvAPI/api/CurrentDate', 'GET', null, function(data)
+    // ADD PORTAL END POINT FOR OUR USER
+    if(schoolData[0].CssStyle == 'sports')
     {
-        var newGuestInfo = {
-                                'isChanged': true,
-                                'isDeleted': false,
-                                // 'id': 1,
-                                'dateRequested': data, 
-                                'formWhere': website
-                        };
-                   
-        var createGuest = new ServerRequest('http://192.168.0.216/AdvAPI/api/WGValues', 'POST', newGuestInfo, function(data)
-            {
-
-                userId = data.id;
-
-                userInfo = {
-                            'userId': userId,
-                            'id1' : id1,                      // WHEN DOING THIS FOR THE COMMUNITY PORTAL USE THE ENCRYPTED LINK
-                            'id2' : id2,
-                            'id3' : id3,
-                            'firstName' : firstName,
-                            'lastName' : lastName,                      
-                    };
-                
-                var getDistinctItemName = new ServerRequest('http://192.168.0.216/AdvAPI/api/WCAPValues/Photocreate/DistinctItemName', 'GET', null, function(data)
-                    {
-                        // console.log('type is:', type)
-                        // console.log('data distinct name: ', data, 'products results: ', products);
-                        var loadFirstLevel = new BuildList(null, website, userInfo, 'cartItem', data);
-                    });
-            });                        
-    });
-
-/*
-website = 'subjectPortal';
-userId = Math.floor(Math.random()*900000) + 100000;
-userName = userData[0].FirstName;
-type = 'cartItem';
-webLink = 'SIC=' + userData[0].SIC;
-
-var getDistinctItemName = new ServerRequest('http://192.168.0.216/AdvAPI/api/WCAPValues/Photocreate/DistinctItemName', 'GET', null, function(data)
+        portalType = 'sports';
+    }
+    else if(schoolData[0].CssStyle == 'family')
     {
-        distinctNames = data;
-        // console.log('data distinct name: ', data, 'products results: ', products);
-        var loadFirstLevel = new BuildList(null, website, webLink, userInfo, type, distinctNames);
-    });
-*/
+        portalType = 'family';
+    } else {
+        portalType = 'school';
+    };
+
+    console.log('this is the style of page: ', schoolData[0].CssStyle)
+
+    // FROM WHERE END POINTS 
+    // [Community-school] [Community-sports] [advancedyou-school] [advancedyou-sports] [advancedyou-family]
+
+    // USER ID ALREADY ASSIGNED
+    userId = url.slice(url.search("userId=") + 7, url.length).replace(/#/g, '');
+
+    var buildLinks = new BuildLinks('?SIC=' + sicCode );
+    var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
+    var pageIsLoaded = new PageIsLoaded();
+
+    url = window.location.href;
+    groupName = url.substr(url.search("html?") + 5, url.length);
+
+    $('#resultsGroupName').css('display','none');
+
+    var userData = firstPortraitData; 
+
+    website = 'advanceyou-' + portalType;
+    type = 'newCartItem';               // type = 'cartItem';
+    webLink = 'SIC=' + id1; 
+
+    userInfo = {
+                'userId': userId,
+                'id1' : userData[0].SIC,                      // WHEN DOING THIS FOR THE COMMUNITY PORTAL USE THE ENCRYPTED LINK
+                'id2' : userData[0].PrimarySubjectID,
+                'id3' : '',
+                'firstName' : userData[0].FirstName,
+                'lastName' : userData[0].LastName,                      
+        };
+
+    var getDistinctItemName = new ServerRequest('http://192.168.0.216/AdvAPI/api/WCAPValues/Photocreate/DistinctItemName', 'GET', null, function(data)
+        {
+            var loadFirstLevel = new BuildList(null, website, userInfo, type, data);
+        });
+
+});
 </script>
 
 </body>

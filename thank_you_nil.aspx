@@ -1,47 +1,16 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page language="C#" autoeventwireup="true" inherits="_thankyouNil, App_Web_-tibnddc" %>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head run at="server">
-
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>				<!-- Detect Mobile devices -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			<!-- Meta Data -->
-    
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>				
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />		
     <title>Subject Portal | Confirmation</title>
-    
-    <link rel="shortcut icon" href="img/camera.png"> 								
-    
+    <link rel="shortcut icon" href="img/camera.png"> 								  
     <link rel="stylesheet" href="css/screen.css?v1.1" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="js/style.js?v1.1"></script>
-	<script type="text/javascript" src="js/events.js?v1.1"></script>
-
-	<script type="text/javascript">
-            if(navigator.appVersion.indexOf("MSIE 8.")!=-1 || navigator.appVersion.indexOf("MSIE 7.")!=-1)
-            alert("Notice! This website does not support versions of Internet Explorer. We recommend using Firefox, Google Chrome, Safari or Opera. Sorry for the inconvenience");
-			
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
-		  ga('create', 'UA-55035205-1', 'auto');
-		  ga('send', 'pageview');
-    </script>
-    
-	<script type="text/javascript">
-            if(navigator.appVersion.indexOf("MSIE 8.")!=-1 || navigator.appVersion.indexOf("MSIE 7.")!=-1)
-            alert("Notice! This website does not support versions of Internet Explorer. We recommend using Firefox, Google Chrome, Safari or Opera. Sorry for the inconvenience");
-   	</script>
-
-    <!-- If IE  -->
     <!--[if gte IE 9]>
           <link rel="stylesheet" href="css/screen_ie.css?v1.1" />
     <![endif]-->
-
 </head>
 
 <body>
@@ -279,6 +248,11 @@
     </div>																	<!-- menu_lg -->
 
 </form>
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
 
    <script type="text/javascript">
 

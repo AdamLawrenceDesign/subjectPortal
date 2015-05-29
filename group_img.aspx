@@ -2,51 +2,20 @@
 <%@ page language="C#" autoeventwireup="true" inherits="_groupImg, App_Web_-tibnddc" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajx" %>
 <%@ Register Assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI" TagPrefix="asp" %>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>				<!-- Detect Mobile devices -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			<!-- Meta Data -->
-    <title>Subject Portal | Group Photos</title>
-    
+    <title>Subject Portal | Group Photos</title>   
     <link rel="shortcut icon" href="img/camera.png">								
-    
     <link rel="stylesheet" href="css/screen.css?v1.1" />
-    <!-- <link rel="stylesheet" href="css/popUp.css"/> --><!--Arlen added popup-->
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-    
-    <script type="text/javascript" src="js/group_img.js?v1.1"></script>
-    <link type="text/css" href="css/jquery.jscrollpane.css" rel="stylesheet" media="all" />				<!-- styles needed by jScrollPane -->
-    <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>							<!-- the jScrollPane script -->
-    <script type="text/javascript" src="js/style.js?v1.1"></script>
-	<script type="text/javascript" src="js/jquery.cycle2.min.js?v1.1"></script>
-	<script type="text/javascript" src="js/events.js?v1.1"></script>
-
-	<script type="text/javascript">
-          if(navigator.appVersion.indexOf("MSIE 8.")!=-1 || navigator.appVersion.indexOf("MSIE 7.")!=-1)
-          alert("Notice! This website does not support versions of Internet Explorer. We recommend using Firefox, Google Chrome, Safari or Opera. Sorry for the inconvenience");
-			
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
-		  ga('create', 'UA-55035205-1', 'auto');
-		  ga('send', 'pageview');
-   </script>
-
+    <link type="text/css" href="css/jquery.jscrollpane.css" rel="stylesheet" media="all" />    
 </head>
 
 <body oncopy="return false" oncontextmenu="return false">
 
-<form id="Form1" runat="server">  
+<form id="Form1" runat="server">
                 
     <input id="hSchoolData" runat="server" type="hidden"/> 				      <!--Client Information-->
     <input id="hBannerImages" runat="server" type="hidden"/> 			      <!--Banner Images-->
@@ -92,11 +61,11 @@
         <section>
         
             <ul class="inline fl_lt desktop_view">
-                <li><a id="home" runat="server" href="index.aspx"><span>Home</span></a></li>
-                <li><a id="download" runat="server" href="downloads.aspx"><span>Portrait Downloads</span></a></li>
-                <li><a id="group" runat="server" href="group_img.aspx" class="nav_selected"><span>Group Photos</span></a></li>
-                <li><a id="package" runat="server" href="packages.aspx"><span>Photography Packages</span></a></li>
-                <li><a id="gift" runat="server" href="gift_items.aspx"><span>Gift Items</span></a></li>
+                <li><a href="index.aspx" class="index"><span>Home</span></a></li>
+                <li><a href="downloads.aspx" class="downloads"><span>Portrait Downloads</span></a></li>
+                <li><a href="group_img.aspx" class="group_img nav_selected"><span>Group Photos</span></a></li>
+                <li><a href="packages.aspx" class="packages"><span>Photography Packages</span></a></li>
+                <li><a href="gift_items.aspx" class="gift_items"><span>Gift Items</span></a></li>                
             </ul>
 
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">    
@@ -359,19 +328,92 @@
     
     <div id="productID" runat="server" class="hidden_div"></div><!--added runat -arlen -->
     
-    <!-- <span>
-        <div id="testing_phone">
-        </div>
-        <div id="testing_tablet">
-        </div>
-        <div id="testing_desktop">
-        </div>
-        <div id="testing_desktop_lg">
-        </div>
-	</span> -->
-    
 </form>
 
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="lib/prod/project.min.js?v1.1"></script>      
+
+<script>
+    var todaysDate, sic, userId, 
+        schoolData = eval("[" + document.getElementById('hSchoolData').value + "]"),
+        bannerImages = eval("[" + document.getElementById('hBannerImages').value + "]"),
+        firstPortraitData = eval("[" + document.getElementById('hFirstImgPortrait').value + "]"), 
+        firstGroupData = eval("[" + document.getElementById('hFirstImgGroup').value + "]"), 
+        portraitData = null,
+        groupData = eval("[" + document.getElementById('hGroupData').value + "]");
+</script>
+
+<script>
+// INITIALISE THE CANVAS APP
+$(function()
+{
+    var url, urlLength, sicCode, hasId, portalType;
+
+    // HIDE HEADER FOR NOW
+    $('header').css('margin-top', '-3.8em');
+
+    // PARSE URL 
+    url = window.location.href;
+    urlLength = url.length;
+    sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
+    hasId = sicCode.search('userId=');
+
+    var startMenuControllers = new MenuControllers();
+    var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
+    var toTop = new ToTop('#to_top');
+    
+    // THE URL HAS NO ID SO WE NEED TO CREATE ONE
+    if(hasId < 0 )
+    {
+        // ADD PORTAL END POINT FOR OUR USER
+        if(schoolData[0].CssStyle == 'sports')
+        {
+            portalType = 'sports';
+        }
+        else if(schoolData[0].CssStyle == 'family')
+        {
+            portalType = 'family';
+        } else {
+            portalType = 'school';
+        };
+
+        console.log('this is the style of page: ', schoolData[0].CssStyle)
+
+        // FROM WHERE END POINTS 
+        // [Community-school] [Community-sports] [advancedyou-school] [advancedyou-sports] [advancedyou-family]
+        var getTime = new ServerRequest('http://192.168.0.216/AdvAPI/api/CurrentDate', 'GET', null, function(time)
+            {
+                var newGuestInfo = {
+                                        'isChanged': true,
+                                        'isDeleted': false,
+                                        'dateRequested': time, 
+                                        'formWhere': '[advancedyou-' + portalType + ']'
+                                };
+                           
+                var createGuest = new ServerRequest('http://192.168.0.216/AdvAPI/api/WGValues', 'POST', newGuestInfo, function(data)
+                    {
+                        userId = data.id;                      
+                        var buildLinks = new BuildLinks('?SIC=' + sicCode + '&userId=' + userId );   
+                        var addPageStyle = new PageStyle(schoolData[0].CssStyle);
+                        var pageIsLoaded = new PageIsLoaded();
+                    });
+            });               
+    } else {
+        // USER ID ALREADY ASSIGNED
+        console.log('user id already assigned: ', sicCode)
+        var buildLinks = new BuildLinks('?SIC=' + sicCode );
+        var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
+        var pageIsLoaded = new PageIsLoaded();
+    }
+
+    var groupPage = new GroupsPage();
+
+});
+
+
+</script>
 
 </body>
 </html>

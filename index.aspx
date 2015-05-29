@@ -5,45 +5,10 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			<!-- Meta Data -->
-
     <title>School Photos</title>
-    
-    <link rel="shortcut icon" href="img/camera.png"> 								
-    
+    <link rel="shortcut icon" href="img/camera.png"> 								    
     <link rel="stylesheet" href="css/screen.css?v1.1" />
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-
-    <!-- GRUNT FILES -->
-    <!-- 
-	<script type="text/javascript" src="js/style.js?v1.1"></script>
-	<script type="text/javascript" src="js/jquery.cycle2.min.js?v1.1"></script>
-	<script type="text/javascript" src="js/events.js?v1.1"></script>
-    -->
-    <script type="type/javascript" src="lib/src/js/jquery.cycle2.min.js"></script>
-    <script type="type/javascript" src="lib/src/js/server-query.js"></script>
-    <script type="type/javascript" src="lib/src/js/build-links.js"></script>
-    <script type="type/javascript" src="lib/src/js/page-style.js"></script>
-    <script type="type/javascript" src="lib/src/js/to-top.js"></script>
-    <script type="type/javascript" src="lib/src/js/menu-ctrls.js"></script>
-
-    <!-- <script type="type/javascript" src="lib/prod/project.js?v1.1"></script> -->
-
-	<script type="text/javascript">
-            if(navigator.appVersion.indexOf("MSIE 8.")!=-1 || navigator.appVersion.indexOf("MSIE 7.")!=-1)
-            alert("Notice! This website does not support versions of Internet Explorer. We recommend using Firefox, Google Chrome, Safari or Opera. Sorry for the inconvenience");
-			
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
-		  ga('create', 'UA-55035205-1', 'auto');
-		  ga('send', 'pageview');
-    </script>
-    
+ 
     <!-- If IE  -->
     <!--[if gte IE 9]>
           <link rel="stylesheet" href="css/screen_ie.css?v1.1" />
@@ -59,6 +24,7 @@
     <input id="hFirstImgGroup" runat="server" type="hidden"/>    
     <input id="hPortraitData" runat="server" type="hidden" />
     <input id="hGroupData" runat="server" type="hidden" /> 
+    <input id="hUserId" type="hidden" />
     
     <div id="opening_load" class="fixed_max bg_fff middle linear">
     	<div class="absolute_vert_center inline" style="height:5em;">
@@ -358,235 +324,98 @@
         
     </div>																	<!-- menu_lg -->
     
-    <!-- <span>
-        <div id="testing_phone">
-        </div>
-        <div id="testing_tablet">
-        </div>
-        <div id="testing_desktop">
-        </div>
-        <div id="testing_desktop_lg">
-        </div>
-	</span> -->
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="lib/prod/project.min.js?v1.1"></script>
 
 <script>
+    var todaysDate, sic, userId, 
+        schoolData = eval("[" + document.getElementById('hSchoolData').value + "]"),
+        bannerImages = eval("[" + document.getElementById('hBannerImages').value + "]"),
+        firstPortraitData = eval("[" + document.getElementById('hFirstImgPortrait').value + "]"), 
+        firstGroupData = eval("[" + document.getElementById('hFirstImgGroup').value + "]"), 
+        portraitData = eval("[" + document.getElementById('hPortraitData').value + "]"),
+        groupData = eval("[" + document.getElementById('hGroupData').value + "]");
+</script>
 
+<script>
 // INITIALISE THE CANVAS APP
 $(function()
 {
-    //  PORTRAITS                                   
-    var portraits = {
-                    // schoolData :   eval("[" + document.getElementById('hSchoolData').value + "]"),
-                    data  :  eval("[" + document.getElementById('hPortraitData').value + "]"), 
-                    
-                    // ============================== //                                                    //====== Function
-                    
-                    list : function()
-                    {
-                        
-                        for(var i  = 0; i < this.data.length; i++){
-                            
-                            var PortraitLink = 'https://advancedimage.com.au/lifebuyimages//' + this.data[i].DstImage;
-                            var li = $('.template_portrait').clone();
-                            
-                            li.removeClass('template_portrait hidden');
-                            li.find('img').attr('src',PortraitLink);
-                            li.find('h4').html(this.data[i].YearPhoto);
-                            
-                            $('#portrait_images').append('\n\r');
-                            $('#portrait_images').append(li);
-                            
-                        }
-                        
-                        var spacer = document.createElement('div');
-                        spacer.setAttribute('class','stretch');
-                        $('#portrait_images').append(spacer);    
-                    },
-                
-                    //=================================================//                                    Watermarking Images 
-                                            
-                    Watermark : function()
-                    {
-                            var overlay = document.createElement('img');
-                            
-                            function setAttributes(el, attrs)
-                            {
-                                for(var key in attrs)
-                                {
-                                    el.setAttribute(key, attrs[key]);
-                                }
-                            }
-                            
-                            setAttributes(overlay, {'src':'img/overlay.png','alt':'','class':'overlay'});
-                            $(overlay).css({'top': '35%','left': '25%', 'margin': '0','width':'50%','pointer-events':'none'});
-                            
-                            $('#portrait_images').children('li').append(overlay);
-                    },
-                
-                    //=================================================//                                    //===== Label 
-                                            
-                    Label : function()
-                    {
-                        
-                            var CurrentCost = parseInt(this.data[0].Cost);
-                            var icon = document.createElement('img');
-                            $(icon).css({'top': '0','left': '0', 'margin': '0','width':'60%','position':'absolute','z-index':'10','pointer-events':'none'});
-                            
-                            switch (CurrentCost){
-                                
-                                case 20 :
-                                    $(icon).attr('src','img/icons/new_image.png');
-                                break;
-                                    
-                                case 0 :
-                                    $(icon).attr('src','img/icons/free_image.png');
-                                break;
-                                
-                            };
-                            
-                            $('#portrait_images li:first').append(icon);   
-                    },
-                    
-                    // ==================================== //                                  //      Portrait Banner
-                    
-                    banner : function()
-                    {
-                        for(var i  = 0; i < this.data.length; i++){
-                            
-                            var path = 'https://advancedimage.com.au/lifebuyimages//' + this.data[i].DstImage;
-                            var img = document.createElement('img');//.attr('src',path); // .addClass('full border_ntl');
-                            $(img).addClass('full border_ntl').attr('src',path);
-                            //$img.addClass('full border_ntl').attr('src',path);
-                            //var imageObject = "<img class=\"full border_ntl \" src=\"" + bannerPathway + "\"" + " alt=\"\" style=\"padding:.2em\" />";
-                            $('.portrait_banner').append(img);
+    var url, urlLength, sicCode, hasId, portalType;
 
-                        }       
-                    },
-                    
-                    //=================================================//                                    Watermarking Images 
-                                            
-                    overlay : function(el)
-                    {
-                        var overlay = document.createElement('img');
-                        
-                        function setAttributes(el, attrs)
-                        {
-                            for(var key in attrs){
-                                el.setAttribute(key, attrs[key]);
-                            }
-                        }
-                        
-                        setAttributes(overlay, {'src':'img/overlay.png','alt':'','class':'overlay'});
-                        $(overlay).css({'top': '50%','left': '25%', 'margin': '0','width':'50%','pointer-events':'none','z-index':'10'});
-                        $(el).prepend(overlay);
-                    },              
-    }
-    
-    // GROUPS
-    var groups = {
-                    data  :  eval("[" + document.getElementById('hGroupData').value + "]"), 
-                
-                    list : function(){
-                        
-                        var strLength = this.data.length;
-                        var currentYear = new Date().getFullYear();
-                        
-                        for(var i  = 0; i < strLength; i++){                                                            // this.data.length
-                            
-                            if( i <= 5 ){
-                                var GroupLink = 'https://advancedimage.com.au/lifebuyimages//' + this.data[i].ClientID + '/' + this.data[i].SubFolder + '/' + this.data[i].fileName ;
-                                var li = $('.template_group').clone();
-                                
-                                li.removeClass('template_group hidden');
-                                li.find('img').attr('src', GroupLink);
-                                
-                                var list_date = this.data[i].dateOfPhotography,
-                                    date = list_date.substr(list_date.length - 4);
-                                                
-                                li.find('span').html(date);
-                                
-                                $('#group_images').append('\n\r');
-                                $('#group_images').append(li);
-                                
-                                if(date == currentYear){
-                                    var icon = document.createElement('img');
-                                    $(icon).css({'top': '0','left': '0', 'margin': '0','width':'40%','position':'absolute','z-index':'10','pointer-events':'none'});
-                                    $(icon).attr('src','img/icons/new_image.png');
-                                    $(li).append(icon);
-                                };
-                                
-                            };
-                            
-                        }
-                        
-                        var spacer = document.createElement('div');
-                        spacer.setAttribute('class','stretch');
-                        $('#portrait_images').append(spacer);
-                        
-                    }
-    }
-    
-    portraits.list();
-    portraits.Watermark();
-    portraits.banner();
-    portraits.Label();
-    portraits.overlay('.watermark');
-    groups.list();
-    
-    // START CYCLE FUNCTION
+    // HIDE HEADER FOR NOW
+    $('header').css('margin-top', '-3.8em');
 
-    $('.portrait_banner').cycle(
-    {                                                           
-        fx:'fade',          // Add effect here
-        speed: 2000,
-        timeout: 5000,      // milliseconds = 2.5 seconds
-    }).css('z-index','5');
+    // PARSE URL 
+    url = window.location.href;
+    urlLength = url.length;
+    sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
+    hasId = sicCode.search('userId=');
 
-    var getTime = new ServerRequest('http://192.168.0.216/AdvAPI/api/CurrentDate', 'GET', null, function()
-        {
-            
-
-
-        });
+    var startMenuControllers = new MenuControllers();
+    var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
+    var toTop = new ToTop('#to_top');
     
-    /*
-    GRUNT ROUTINES 
-    
-    1. MAKE LINKS WORK - ADD USER ID        - build-links.js
-    2. PAGE STYLE - CHECK CSS STYLES ETC    - page-style.js
-    3. EVENT MANAGER 
-            - TO TOP        - to-top.js
-            - WATERMARK     - watermark.js
-            - MENU-CTRLS    - menu-ctrls.js
-            - 
-    
-    LOCAL 
-        - FINISHED LOADING      
-        - MENU SLIDE DOWN
-        - START CYCLE
-
-    setTimeout(function()
+    // THE URL HAS NO ID SO WE NEED TO CREATE ONE
+    if(hasId < 0 )
     {
-        $('header').css('margin-top','0px')
-        setTimeout(function(){
-            $('#opening_load').addClass('scale_hide');  
-        },1000);
-        
-        setTimeout(function(){
-            $('.img_banner').cycle({                                                            // initiate cycle
-                fx:'fade',          // Add effect here
-                speed: 2000,
-                timeout: 5000,      // milliseconds = 2.5 seconds
-            });
-        },1000);
-    },1600);    
-    */
+        // ADD PORTAL END POINT FOR OUR USER
+        if(schoolData[0].CssStyle == 'sports')
+        {
+            portalType = 'sports';
+        }
+        else if(schoolData[0].CssStyle == 'family')
+        {
+            portalType = 'family';
+        } else {
+            portalType = 'school';
+        };
 
+        console.log('this is the style of page: ', schoolData[0].CssStyle)
 
+        // FROM WHERE END POINTS 
+        // [Community-school] [Community-sports] [advancedyou-school] [advancedyou-sports] [advancedyou-family]
+        var getTime = new ServerRequest('http://192.168.0.216/AdvAPI/api/CurrentDate', 'GET', null, function(time)
+            {
+                var newGuestInfo = {
+                                        'isChanged': true,
+                                        'isDeleted': false,
+                                        'dateRequested': time, 
+                                        'formWhere': '[advancedyou-' + portalType + ']'
+                                };
+                           
+                var createGuest = new ServerRequest('http://192.168.0.216/AdvAPI/api/WGValues', 'POST', newGuestInfo, function(data)
+                    {
+                        userId = data.id;       
+
+                        // SET COOKIE FOR PAYMENT PAGES 
+                        $('#hUserId').val(userId);
+                        console.log($('#hUserId').val());
+                        var buildLinks = new BuildLinks('?SIC=' + sicCode + '&userId=' + userId );   
+                        var addPageStyle = new PageStyle(schoolData[0].CssStyle);
+                        var pageIsLoaded = new PageIsLoaded();
+                    });
+            });               
+    } else {
+        // USER ID ALREADY ASSIGNED
+        console.log('user id already assigned');
+
+        userId = url.slice(url.search("userId=") + 7, url.length).replace(/#/g, '');
+        $('#hUserId').val(userId);
+        console.log($('#hUserId').val());
+
+        var buildLinks = new BuildLinks('?SIC=' + sicCode );
+        var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
+        var pageIsLoaded = new PageIsLoaded();
+    }
+
+    var indexPage = new IndexPage(portraitData, groupData);
 });
-
 </script>
-
     
 </body>
 </html>

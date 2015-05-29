@@ -1,44 +1,22 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page language="C#" autoeventwireup="true" inherits="_messageSent, App_Web_-tibnddc" %>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head run at="server">
-
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>				<!-- Detect Mobile devices -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			<!-- Meta Data -->
-    
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>		
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Subject Portal | Confirmation</title>
-    <link rel="shortcut icon" href="img/camera.png"> 								
-    
+    <link rel="shortcut icon" href="img/camera.png"> 								  
     <link rel="stylesheet" href="css/screen.css?v1.1" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
-    <script type="text/javascript" src="js/jquery.cycle2.min.js?v1.1"></script>
-    <script type="text/javascript" src="js/style.js?v1.1"></script>
-	<script type="text/javascript" src="js/events.js?v1.1"></script>
-
-	<script type="text/javascript">
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
-		  ga('create', 'UA-55035205-1', 'auto');
-		  ga('send', 'pageview');
-   </script>
-
 </head>
 
 <body>
-
-<form id="form1" runat="server">
-                    
-     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager><!--asp ajax element--->
-
-     <input id="hSchoolData" runat="server" type="hidden"/> 								<!-- Client Information-->
-     <input id="hBannerImages" runat="server" type="hidden"/> 							    <!-- Banner Images-->
-     <input id="hFirstImgPortrait" runat="server" type="hidden"/> 							<!-- First Portrait Image-->
-     <input id="hFirstImgGroup" runat="server" type="hidden"/> 								<!-- First Group Image-->
+<form id="form1" runat="server">   
+     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager><!--asp ajax element -->
+     <input id="hSchoolData" runat="server" type="hidden"/> 								
+     <input id="hBannerImages" runat="server" type="hidden"/> 							  
+     <input id="hFirstImgPortrait" runat="server" type="hidden"/> 							
+     <input id="hFirstImgGroup" runat="server" type="hidden"/> 							
         
     <div id="opening_load" class="fixed_max bg_fff middle linear">
     	<div class="absolute_vert_center inline" style="height:5em;">
@@ -138,47 +116,6 @@
                             </ul>
                         
                         </div>
-                        	
-                        <!-- 			Alternative Options
-                        <div class="title_ntl align_lt">
-                            Top Sellers
-                        </div>
-            
-                        <div class="link clearfix shadow_left" style="border-left:1px solid #ddd">
-                        
-                                <div class="p_m clearfix add_item">
-                                    <h4>ALL IMAGES</h4>
-                                    <p>High Resolution Download</p>
-                                    <strike class="all_strike">$ 42.00</strike>
-                                    <span class="image_name all_price" style="color:red"> &nbsp;$ 22.00</span><br/>
-                                    <a class="txt_sm m_l_top"><span class="txt_sm">INFORMATION</span></a>
-                                    
-                                        <button class="bg_sec button_sd _100 m_l_top square">ADD TO CART</button>
-                                </div>
-                                
-                                <div class="underline_solid m_l_top m_l_bottom"></div>
-                                
-                                <div class="p_m clearfix align_ct">
-                                    <a href="event_sponsorship.html">
-                                        <img src="img/subject_img/groups/2T_2010.jpg" class="preview_pack full" alt=""/>
-                                        <p><span>Sports Images</span></p>
-                                        <span class="txt_sm">View latest</span>
-                                    </a>
-                                </div>
-                                
-                                <div class="underline_solid m_l_top m_l_bottom"></div>
-                                
-                                <div class="p_m clearfix align_ct">
-                                    <a href="event_sponsorship.html">
-                                        <img src="img/pack.jpg" class="full preview_pack" alt=""/>
-                                        <p><span>Photography Packages</span></p>
-                                        <span class="txt_sm">Past years available</span>
-                                        <p>Click Here</p>
-                                    </a>
-                                </div>
-                            
-                        </div>
-                        -->
                         
                   </aside>
              
@@ -299,8 +236,7 @@
         	    
             <h2><a href="#" class="menu_help_toggle"><span class="icon-arrow-up txt_ntl_m fl_rt"></span></a></h2>
         
-        </section>
-        
+        </section>   
     </div>																	<!-- menu_lg -->
     
     <div id="menu_help_lg" class="p_xl _33_m border_box">
@@ -334,37 +270,64 @@
         
     </div>																	<!-- menu_help_lg -->
 	
-    <script type="text/x-javascript">
-		$(document).ready(function() {
-            			
-	    //Added links script from cart page - Arlen
-        // ====================================================== // 								// 			Make Links Work
-		
-		function CreateLinks(){
-			
-			var data =  eval("[" + document.getElementById('hFirstImgPortrait').value + "]");
-			var sic = data[0].SIC;
-			
-			$('.index').attr( 'href' , 'index.aspx?SIC=' + sic );
-			$('.downloads').attr( 'href' , 'downloads.aspx?SIC=' + sic );
-			$('.group_img').attr( 'href' , 'group_img.aspx?SIC=' + sic );
-			$('.packages').attr( 'href' , 'packages.aspx?SIC=' + sic );
-			$('.gift_items').attr( 'href' , 'gift_items.aspx?SIC=' + sic );
-			$('.payment').attr( 'href' , 'payment.aspx?SIC=' + sic );
-			$('.thank_you').attr( 'href' , 'thank_you.aspx?SIC=' + sic );
-			$('.cart').attr( 'href' , 'cart.aspx?SIC=' + sic );
-			$('.contact_us').attr( 'href' , 'contact_us.aspx?SIC=' + sic );
-			
-		};
-		
-		CreateLinks();
-        });
+
+
+</form>
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
+<script type="text/javascript" src="js/jquery.cycle2.min.js?v1.1"></script>
+<script type="text/javascript" src="lib/prod/project.min.js?v1.1"></script>
+<script>
+    var todaysDate, sic, userId, 
+        schoolData = eval("[" + document.getElementById('hSchoolData').value + "]"),
+        bannerImages = eval("[" + document.getElementById('hBannerImages').value + "]"),
+        firstPortraitData = eval("[" + document.getElementById('hFirstImgPortrait').value + "]"), 
+        firstGroupData = eval("[" + document.getElementById('hFirstImgGroup').value + "]"), 
+        portraitData = null,
+        groupData = null;
+</script>
+<script type="text/javascript">
+// INITIALISE THE APP
+$(function()
+{   
+    var url, urlLength, sicCode, hasId, portalType;
+
+    // HIDE HEADER FOR NOW
+    $('header').css('margin-top', '-3.8em');
+
+    // PARSE URL 
+    url = window.location.href;
+    urlLength = url.length;
+    sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
+    hasId = sicCode.search('userId=');
+
+    var startMenuControllers = new MenuControllers();
+    var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
+    var toTop = new ToTop('#to_top');
+    var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
+    var pageIsLoaded = new PageIsLoaded();    
+
+    //Added links script from cart page - Arlen
+    function CreateLinks()
+    {    
+        var data =  eval("[" + document.getElementById('hFirstImgPortrait').value + "]");
+        var sic = data[0].SIC;
         
-       
-    
-    </script>
+        $('.index').attr( 'href' , 'index.aspx?SIC=' + sic );
+        $('.downloads').attr( 'href' , 'downloads.aspx?SIC=' + sic );
+        $('.group_img').attr( 'href' , 'group_img.aspx?SIC=' + sic );
+        $('.packages').attr( 'href' , 'packages.aspx?SIC=' + sic );
+        $('.gift_items').attr( 'href' , 'gift_items.aspx?SIC=' + sic );
+        $('.payment').attr( 'href' , 'payment.aspx?SIC=' + sic );
+        $('.thank_you').attr( 'href' , 'thank_you.aspx?SIC=' + sic );
+        $('.cart').attr( 'href' , 'cart.aspx?SIC=' + sic );
+        $('.contact_us').attr( 'href' , 'contact_us.aspx?SIC=' + sic );
+        
+    };  
+    CreateLinks();
+});
 
-</form>   
+</script>
+
 </body>
-
 </html>

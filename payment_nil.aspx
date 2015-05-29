@@ -1,44 +1,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page language="C#" autoeventwireup="true" inherits="_paymentNil, App_Web_-tibnddc" %>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>				<!-- Detect Mobile devices -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			<!-- Meta Data -->
-    
-    <title>Subject Portal | Payment</title>
-    
+    <title>Subject Portal | Payment</title>  
     <link rel="shortcut icon" href="img/camera.png"> 								
-    
     <link rel="stylesheet" href="css/screen.css?v1.1" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="js/style.js?v1.1"></script>
-	<script type="text/javascript" src="js/jquery.cycle2.min.js?v1.1"></script>
-	<script type="text/javascript" src="js/events.js?v1.1"></script>
     <link rel="stylesheet" href="css/popUp.css?v1.1" />
-    
-	<script type="text/javascript">
-		if(navigator.appVersion.indexOf("MSIE 8.")!=-1 || navigator.appVersion.indexOf("MSIE 7.")!=-1)
-		alert("Notice! This website does not support versions of Internet Explorer. We recommend using Firefox, Google Chrome, Safari or Opera. Sorry for the inconvenience");
-   </script>
-
-    <!-- If IE  -->
     <!--[if gte IE 9]>
           <link rel="stylesheet" href="css/screen_ie.css?v1.1" />
     <![endif]-->
-    
 </head>
 
 <body>
-
 <form id="form1" runat="server">
                     
       <asp:ScriptManager ID="ScriptManager1" runat="server">
-      </asp:ScriptManager><!--asp ajax element--->
+      </asp:ScriptManager><!-- asp ajax element -->
   
       <input id="hSchoolData" runat="server" type="hidden"/> 									<!-- Client Information-->
       <input id="hBannerImages" runat="server" type="hidden"/> 								    <!-- Banner Images-->
@@ -329,42 +309,53 @@
 
 </form>
 
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="lib/prod/project.min.js?v1.1"></script>
+<script>
+    var todaysDate, sic, userId, 
+        schoolData = eval("[" + document.getElementById('hSchoolData').value + "]"),
+        bannerImages = eval("[" + document.getElementById('hBannerImages').value + "]"),
+        firstPortraitData = eval("[" + document.getElementById('hFirstImgPortrait').value + "]"), 
+        firstGroupData = eval("[" + document.getElementById('hFirstImgGroup').value + "]"), 
+        portraitData = null,
+        groupData = null,
+        count = 0;    
+</script>
+
 <script type="text/javascript">
 
-	$(document).ready(function(){
-        
-        //comment -Arlen
-		/*var Data = eval("[" + document.getElementById('hPortraitData').value + "]"),
-			FirstName = Data[0].FirstName,
-			LastName = Data[0].LastName,
-			Class = Data[0].Folder;
-		$('#Student').val(FirstName + ' ' + LastName + ', ' + Class);
-		console.log($('#Student').val())*/
+$(function()
+{       
+    //comment -Arlen
+	/*var Data = eval("[" + document.getElementById('hPortraitData').value + "]"),
+		FirstName = Data[0].FirstName,
+		LastName = Data[0].LastName,
+		Class = Data[0].Folder;
+	$('#Student').val(FirstName + ' ' + LastName + ', ' + Class);
+	console.log($('#Student').val())*/
 		
 		
-		//Added links script from cart page - Arlen
-		// ====================================================== // 								// 			Make Links Work
-		/*
-		function CreateLinks(){
-			
-			var data =  eval("[" + document.getElementById('hFirstImgPortrait').value + "]");
-			var sic = data[0].SIC;
-			
-			$('.index').attr( 'href' , 'index.aspx?SIC=' + sic );
-			$('.downloads').attr( 'href' , 'downloads.aspx?SIC=' + sic );
-			$('.group_img').attr( 'href' , 'group_img.aspx?SIC=' + sic );
-			$('.packages').attr( 'href' , 'packages.aspx?SIC=' + sic );
-			$('.gift_items').attr( 'href' , 'gift_items.aspx?SIC=' + sic );
-			$('.payment').attr( 'href' , 'payment.aspx?SIC=' + sic );
-			$('.thank_you').attr( 'href' , 'thank_you.aspx?SIC=' + sic );
-			$('.cart').attr( 'href' , 'cart.aspx?SIC=' + sic );
-			$('.contact_us').attr( 'href' , 'contact_us.aspx?SIC=' + sic );
-			
-		};
+	//Added links script from cart page - Arlen	
+	function CreateLinks()
+    {	
+		var data =  eval("[" + document.getElementById('hFirstImgPortrait').value + "]");
+		var sic = data[0].SIC;
+		$('.index').attr( 'href' , 'index.aspx?SIC=' + sic );
+		$('.downloads').attr( 'href' , 'downloads.aspx?SIC=' + sic );
+		$('.group_img').attr( 'href' , 'group_img.aspx?SIC=' + sic );
+		$('.packages').attr( 'href' , 'packages.aspx?SIC=' + sic );
+		$('.gift_items').attr( 'href' , 'gift_items.aspx?SIC=' + sic );
+		$('.payment').attr( 'href' , 'payment.aspx?SIC=' + sic );
+		$('.thank_you').attr( 'href' , 'thank_you.aspx?SIC=' + sic );
+		$('.cart').attr( 'href' , 'cart.aspx?SIC=' + sic );
+		$('.contact_us').attr( 'href' , 'contact_us.aspx?SIC=' + sic );	
+	};
+	
+	CreateLinks();
 		
-		CreateLinks();
-		*/
-    });
+});
 
 </script>
 

@@ -1,24 +1,42 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page language="C#" autoeventwireup="true" inherits="_cart, App_Web_bh5c9eha" %>
+<%@ page language="C#" autoeventwireup="true" inherits="_cart, App_Web_fblgf7pa" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
+    <!--<meta name="viewport" content="initial-scale=1, maximum-scale=1"/> -->				<!-- Detect Mobile devices -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			<!-- Meta Data -->
     <title runat="server">Subject Portal | Cart</title>
+    
     <link rel="shortcut icon" href="img/camera.png"> 								
+    
     <link rel="stylesheet" href="css/screen.css?v1.1" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'/>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/style.js?v1.1"></script>
+    <script type="text/javascript" src="js/jquery.cycle2.min.js?v1.1"></script>
+	<script type="text/javascript" src="js/events.js?v1.1"></script>
+
+	<script type="text/javascript">
+            if(navigator.appVersion.indexOf("MSIE 8.")!=-1 || navigator.appVersion.indexOf("MSIE 7.")!=-1)
+            alert("Notice! This website does not support versions of Internet Explorer. We recommend using Firefox, Google Chrome, Safari or Opera. Sorry for the inconvenience");
+   	</script>
+
+    <!-- If IE  -->
     <!--[if gte IE 9]>
           <link rel="stylesheet" href="css/screen_ie.css?v1.1" />
     <![endif]-->
+
 </head>
 
 <body oncopy="return false" oncontextmenu="return false">
 
 <form id="Form1" runat="server">
 
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager><!--asp ajax element -->
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager><!--asp ajax element--->
   
     <input id="hSchoolData" runat="server" type="hidden"/> 									<!-- Client Information-->
     <input id="hBannerImages" runat="server" type="hidden"/> 								<!-- Banner Images-->
@@ -82,7 +100,7 @@
                 	</div>
                 </asp:label>
         
-                <asp:GridView ID="grvCart" runat="server"  style="font-size:.8em;padding:1em;border:none;" AutoGenerateColumns="False" AlternatingRowStyle-BackColor = "#fafafa" DataKeyNames="ID" BorderStyle="None" OnRowDeleting="grvCart_RowDeleting"  OnRowEditing="grvCart_RowEditing" OnRowcommand="grvCart_RowCommand"  OnPageIndexChanging="grvCart_PageIndexChanging" PageSize="5">            
+                <asp:GridView ID="grvCart" runat="server"  style="font-size:.8em;padding:1em;border:none;" AutoGenerateColumns="False" AlternatingRowStyle-BackColor = "#fafafa" DataKeyNames="ID" BorderStyle="None" OnRowDeleting="grvCart_RowDeleting"  OnRowEditing="grvCart_RowEditing" OnRowcommand="DeleteRowBtn_Click"  OnPageIndexChanging="grvCart_PageIndexChanging" PageSize="5">            
                      <Columns>
                        <asp:TemplateField> 
                           <ItemTemplate>
@@ -149,13 +167,7 @@
                           </ItemTemplate> 
                        </asp:TemplateField>
                                                                             
-                       <asp:TemplateField>
-                          <ItemTemplate> 
-                                 <asp:Button ID="btnEdit" runat="server" CssClass="button_sd round_sd txt_xs" CommandArgument='<%# ((GridViewRow)Container).RowIndex %>' CommandName="editrow" Text="EDIT" style="background:rgb(255,187,0)" Visible="false"/> 
-                          </ItemTemplate>
-                       </asp:TemplateField>
-                       
-                        <asp:TemplateField>
+                       <asp:TemplateField HeaderText="Remove">
                           <ItemTemplate> 
                                  <asp:Button ID="btnDelete" runat="server" CssClass="button_sd round_sd txt_xs" CommandArgument='<%# ((GridViewRow)Container).RowIndex %>' CommandName="deleterow" Text="DELETE" style="background:rgb(255,187,0)"  /> 
                           </ItemTemplate>
@@ -277,21 +289,17 @@
             </aside>
         
         </section>
-        &nbsp;
-        <div class="underline_solid">
-        </div>
-        <div class="p_l clearfix">
     
     </div>																	<!-- Main -->
     
     <div class="clearfix p_l_top p_l_bottom desktop_view">
-      
+    	
         <section>
-          
+        	
             <div class="wrapper p_m"> 
             
-                <div class="_66_m p_l_top p_l_bottom txt_emboss txt_sm sports_fff">
-                    <h2>THANK YOU TO <span class="school_name"></span></h2>   <!--  to <span class="school_name"></span> -->
+                <div class="_66_m p_l_top p_l_bottom txt_emboss txt_sm">
+                    <h2>THANK YOU TO <span class="school_name"></span></h2>		<!--  to <span class="school_name"></span> -->
                     <p><span class="name_full"></span> attended <span class="school_name"></span> in <span class="img_latest_year"></span>.</p> 
                     <blockquote>
                     <p>"advancedlife would like to thank the families of <span class="school_name"></span> for the privilege of being part of your community." </p></blockquote>
@@ -299,12 +307,12 @@
                 </div>
                 
                 <div class="fl_rt _33_m img_banner m_l_top m_l_bottom"></div>
-          
+        	
             </div>
             
         </section>
     
-    </div>    																<!-- clear section -->
+    </div>																	<!-- clear section -->
     
     <footer>
     
@@ -412,89 +420,20 @@
         </section>
         
     </div>																	<!-- menu_lg -->
+	
 </form>
 
-<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-<script type="text/javascript" src="lib/prod/project.min.js?v1.1"></script>
-
-<script>
-    var todaysDate, sic, userId, 
-        schoolData = eval("[" + document.getElementById('hSchoolData').value + "]"),
-        bannerImages = eval("[" + document.getElementById('hBannerImages').value + "]"),
-        firstPortraitData = eval("[" + document.getElementById('hFirstImgPortrait').value + "]"), 
-        firstGroupData = eval("[" + document.getElementById('hFirstImgGroup').value + "]"), 
-        portraitData = null,
-        groupData = null;
-</script>
-
 <script type="text/javascript">
-// INITALISE APP
-$(function()
-{
-    var url, urlLength, sicCode, hasId, portalType;
-
-    // HIDE HEADER FOR NOW
-    $('header').css('margin-top', '-3.8em');
-
-    // PARSE URL 
-    url = window.location.href;
-    urlLength = url.length;
-    sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
-    hasId = sicCode.search('userId=');
-
-    var startMenuControllers = new MenuControllers();
-    var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
-    var toTop = new ToTop('#to_top');
-    var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
-
-    // THE URL HAS NO ID SO WE NEED TO CREATE ONE
-    if(hasId < 0 )
-    {
-        // ADD PORTAL END POINT FOR OUR USER
-        if(schoolData[0].CssStyle == 'sports')
-        {
-            portalType = 'sports';
-        }
-        else if(schoolData[0].CssStyle == 'family')
-        {
-            portalType = 'family';
-        } else {
-            portalType = 'school';
-        };
-
-        console.log('this is the style of page: ', schoolData[0].CssStyle)
-
-        var getTime = new ServerRequest('http://192.168.0.216/AdvAPI/api/CurrentDate', 'GET', null, function(time)
-            {
-                var newGuestInfo = {
-                                        'isChanged': true,
-                                        'isDeleted': false,
-                                        'dateRequested': time, 
-                                        'formWhere': '[advancedyou-' + portalType + ']'
-                                };
-                           
-                var createGuest = new ServerRequest('http://192.168.0.216/AdvAPI/api/WGValues', 'POST', newGuestInfo, function(data)
-                    {
-                        userId = data.id;                      
-                        var buildLinks = new BuildLinks('?SIC=' + sicCode + '&userId=' + userId );   
-                        var addPageStyle = new PageStyle(schoolData[0].CssStyle);
-                        var pageIsLoaded = new PageIsLoaded();
-                    });
-            });               
-    } else {
-        // USER ID ALREADY ASSIGNED
-        console.log('user id already assigned', sicCode)
-        var buildLinks = new BuildLinks('?SIC=' + sicCode );
-        var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
-        var pageIsLoaded = new PageIsLoaded();
-    }
-    // ROUTINES SPECIFIC FOR THIS PAGE
-    var object = $('th').attr('scope','col');
+	$(document).ready(function(e) {
+		// ====================================================== // 								// 			Fix styling
+    	var object = $('th').attr('scope','col');
 		object.css({'background':'#fafafa','font-weight':'500','font-family':'"Open Sans", sans-serif'}); 
 		$('#lblTotAmt').addClass('txt_red');   
+	
+	
+	//Added links script - Arlen
+		// ====================================================== // 								// 			Make Links Work
 		
-    /*
 		function CreateLinks(){
 			
 			var data =  eval("[" + document.getElementById('hFirstImgPortrait').value + "]");
@@ -513,8 +452,9 @@ $(function()
 		};
 		
 		CreateLinks();
-    */
-});
+		
+      });
+
 
 </script>	
 

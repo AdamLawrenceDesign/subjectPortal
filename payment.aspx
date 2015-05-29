@@ -1,50 +1,20 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page language="C#" autoeventwireup="true" inherits="_payment, App_Web_62dmgfxq" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>				<!-- Detect Mobile devices -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			<!-- Meta Data -->
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" /> <!--Added IE compatibility mode - ARLEN 30/09/2014 -->
-    
-    <title>Subject Portal | Payment</title>
-    
-    <link rel="shortcut icon" href="img/camera.png"> 								
-    
+    <title>Subject Portal | Payment</title>   
+    <link rel="shortcut icon" href="img/camera.png"> 								   
     <link rel="stylesheet" href="css/screen.css?v1.1" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="js/style.js?v1.1"></script>
-	<script type="text/javascript" src="js/jquery.cycle2.min.js?v1.1"></script>
-	<script type="text/javascript" src="js/events.js?v1.1"></script>
     <link rel="stylesheet" href="css/popUp.css?v1.1" />
-    
-	<script type="text/javascript">
-	
-		if(navigator.appVersion.indexOf("MSIE 8.")!=-1 || navigator.appVersion.indexOf("MSIE 7.")!=-1)
-		alert("Notice! This website does not support versions of Internet Explorer. We recommend using Firefox, Google Chrome, Safari or Opera. Sorry for the inconvenience");
-   
-	  function moveCursorToEnd(el) {
-				if (typeof el.selectionStart == "number") {
-				   el.selectionStart = el.selectionEnd = el.value.length;
-				 } else if (typeof el.createTextRange != "undefined") {
-					el.focus();
-				  var range = el.createTextRange();
-					range.collapse(false);
-					range.select();
-			}
-		}
-   
-    </script>
-    <!-- If IE  -->
     <!--[if gte IE 9]>
           <link rel="stylesheet" href="css/screen_ie.css?v1.1" />
     <![endif]-->
-    
 </head>
 
 <body oncopy="return false" oncontextmenu="return false">
@@ -486,8 +456,7 @@
             <p>school photography &sdot; sports &amp; event photography &sdot; commercial printing &amp; design services</p>
             <p>&copy; advancedlife 2014</p>
             
-        </section>
-    
+        </section>  
     </footer>																	<!-- footer -->
     
     <div id="to_top" class="hidden">
@@ -564,97 +533,101 @@
             <a href="#" class="menu_lg_toggle m_l_top txt_lg"><span class="icon-arrow-up txt_ntl_m fl_rt"></span></a>
         
         </section>
-        
     </div>																	<!-- menu_lg -->
-
-    <!-- <span>
-        <div id="testing_phone">
-        </div>
-        <div id="testing_tablet">
-        </div>
-        <div id="testing_desktop">
-        </div>
-        <div id="testing_desktop_lg">
-        </div>
-	</span> -->
 
 </form>
 
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="lib/prod/project.min.js?v1.1"></script>
 <script>
-    var count = 0;
+    var todaysDate, sic, userId, 
+        schoolData = eval("[" + document.getElementById('hSchoolData').value + "]"),
+        bannerImages = eval("[" + document.getElementById('hBannerImages').value + "]"),
+        firstPortraitData = eval("[" + document.getElementById('hFirstImgPortrait').value + "]"), 
+        firstGroupData = eval("[" + document.getElementById('hFirstImgGroup').value + "]"), 
+        portraitData = null,
+        groupData = null,
+        count = 0;    
 </script>
 
 <script type="text/javascript">
+// INITIALISE THE CANVAS APP
+$(function()
+{    
+    var url, urlLength, sicCode, hasId, portalType;
 
-	$(document).ready(function(){
-        
-		// =================================================// 											// Address
+    // HIDE HEADER FOR NOW
+    $('header').css('margin-top', '-3.8em');
 
-		var SchoolData =  eval("[" + document.getElementById('hSchoolData').value + "]");
-		
-		var length = SchoolData[0].WebTown.length,
-			findPostCode = length - 4,
-			findState = length - 8,
-			
-			postcode = SchoolData[0].WebTown.substr(findPostCode,length),
-			stateFind2 = SchoolData[0].WebTown.substr(findState,length),
-			state = stateFind2.substr(0,4);
-		
-		var DropDown = $('#txtTown');
-		
-		//$('#txtAddress').val(SchoolData[0].WebAddress); //Moved to code behind - Arlen 15/09/2014
-		//$('#txtTown').val(SchoolData[0].WebTown.substr(0,findState)); //Moved to code behind - Arlen 15/09/2014
-		//$('#txtPostcode').val(postcode);  //Moved to code behind - Arlen 15/09/2014
-		//$('#state').val(state); //Moved to code behind - Arlen 15/09/2014
-		
-		//$('#address_wrap').addClass('invisible').css({'height':'0px','position':'absolute'});				// include
-		//$('#client_address').removeClass('hidden');		
-		$('#client_address span').html( SchoolData[0].WebName.replace('?','\'') + '<br/>' + SchoolData[0].WebAddress + ', ' + SchoolData[0].WebTown);
-		
-		// =================================================// 											// Student 
+    // PARSE URL 
+    url = window.location.href;
+    urlLength = url.length;
+    sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
+    hasId = sicCode.search('userId=');
 
-		var StudentData = eval("[" + document.getElementById('hFirstImgPortrait').value + "]"); 
+    var startMenuControllers = new MenuControllers();
+    var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
+    var toTop = new ToTop('#to_top');
+    var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
+    var pageIsLoaded = new PageIsLoaded();
 
-		var name_given = StudentData[0].FirstName,
-			name_surname = StudentData[0].LastName,
-			name_full = name_given + " " + name_surname,
-			group = StudentData[0].Folder,
-			dob = StudentData[0].DateOfBirth;
+    // ROUTINES SPECIFIC FOR THIS PAGE ARE
+	var SchoolData =  eval("[" + document.getElementById('hSchoolData').value + "]");		
+	var length = SchoolData[0].WebTown.length,
+		findPostCode = length - 4,
+		findState = length - 8,	
+		postcode = SchoolData[0].WebTown.substr(findPostCode,length),
+		stateFind2 = SchoolData[0].WebTown.substr(findState,length),
+		state = stateFind2.substr(0,4);
 
-		$('#Student').val(name_full + ', ' + group );
+	var DropDown = $('#txtTown');
+
+	$('#client_address span').html( SchoolData[0].WebName.replace('?','\'') + '<br/>' + SchoolData[0].WebAddress + ', ' + SchoolData[0].WebTown);
+	
+	// STUDENT INFORMATION
+	var StudentData = eval("[" + document.getElementById('hFirstImgPortrait').value + "]"); 
+
+	var name_given = StudentData[0].FirstName,
+		name_surname = StudentData[0].LastName,
+		name_full = name_given + " " + name_surname,
+		group = StudentData[0].Folder,
+		dob = StudentData[0].DateOfBirth;
+
+	$('#Student').val(name_full + ', ' + group );
+	
+	// Added links script from cart page - Arlen
+	// MAKE LINKS WORK
+	function CreateLinks()
+    {
+		var data =  eval("[" + document.getElementById('hFirstImgPortrait').value + "]");
+		var sic = data[0].SIC;
 		
-		//Added links script from cart page - Arlen
-		// ====================================================== // 								// 			Make Links Work
-		
-		function CreateLinks(){
-			
-			var data =  eval("[" + document.getElementById('hFirstImgPortrait').value + "]");
-			var sic = data[0].SIC;
-			
-			$('.index').attr( 'href' , 'index.aspx?SIC=' + sic );
-			$('.downloads').attr( 'href' , 'downloads.aspx?SIC=' + sic );
-			$('.group_img').attr( 'href' , 'group_img.aspx?SIC=' + sic );
-			$('.packages').attr( 'href' , 'packages.aspx?SIC=' + sic );
-			$('.gift_items').attr( 'href' , 'gift_items.aspx?SIC=' + sic );
-			$('.payment').attr( 'href' , 'payment.aspx?SIC=' + sic );
-			$('.thank_you').attr( 'href' , 'thank_you.aspx?SIC=' + sic );
-			$('.cart').attr( 'href' , 'cart.aspx?SIC=' + sic );
-			$('.contact_us').attr( 'href' , 'contact_us.aspx?SIC=' + sic );
-			
-		};
-		
-		CreateLinks();
-		
-        $(document).on('click', '#btnYes', function(event)
+		$('.index').attr( 'href' , 'index.aspx?SIC=' + sic );
+		$('.downloads').attr( 'href' , 'downloads.aspx?SIC=' + sic );
+		$('.group_img').attr( 'href' , 'group_img.aspx?SIC=' + sic );
+		$('.packages').attr( 'href' , 'packages.aspx?SIC=' + sic );
+		$('.gift_items').attr( 'href' , 'gift_items.aspx?SIC=' + sic );
+		$('.payment').attr( 'href' , 'payment.aspx?SIC=' + sic );
+		$('.thank_you').attr( 'href' , 'thank_you.aspx?SIC=' + sic );
+		$('.cart').attr( 'href' , 'cart.aspx?SIC=' + sic );
+		$('.contact_us').attr( 'href' , 'contact_us.aspx?SIC=' + sic );	
+	};
+	
+	CreateLinks();
+
+    // COUND HOW MANY TIME THE PAY BUTTON IS CLICKED
+    $(document).on('click', '#btnYes', function(event)
+    {
+        count++;
+        if(count > 0)
         {
-            count++;
-            if(count > 0)
-            {
-              $(this).css('pointer-events','none');
-            };
-        });
-
+          $(this).css('pointer-events','none');
+        };
     });
+});
 
 </script>
 

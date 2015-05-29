@@ -1,53 +1,24 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page language="C#" autoeventwireup="true" inherits="_downloads, App_Web_-tibnddc" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>				<!-- Detect Mobile devices -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			<!-- Meta Data -->
     <title>Portrait Downloads</title>
     
     <link rel="shortcut icon" href="img/camera.png"> 								
-    
     <link rel="stylesheet" href="css/screen.css?v1.1" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'/>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="js/downloads.js"></script>														<!-- Downloads information -->
-    <script type="text/javascript" src="js/style.js?v1.1"></script>
-	
-    <script type="text/javascript" src="js/jquery.cycle2.min.js?v1.1"></script>
-	<script type="text/javascript" src="js/events.js?v1.1"></script>
-
-	<script type="text/javascript">
-
-            if(navigator.appVersion.indexOf("MSIE 8.")!=-1 || navigator.appVersion.indexOf("MSIE 7.")!=-1)
-            alert("Notice! This website does not support versions of Internet Explorer. We recommend using Firefox, Google Chrome, Safari or Opera. Sorry for the inconvenience");
-			
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
-		  ga('create', 'UA-55035205-1', 'auto');
-		  ga('send', 'pageview');
-   
-   </script>
-
     <!-- If IE  -->
     <!--[if gte IE 9]>
           <link rel="stylesheet" href="css/screen_ie.css?v1.1" />
     <![endif]-->
-
 </head>
 
 <body oncopy="return false" oncontextmenu="return false">
 
-<form id="Form1" runat="server">  
+<form id="Form1" runat="server">
 
     <input id="hBannerImages" runat="server" type="hidden"/> <!--Banner Images-->
     <input id="hFirstImgPortrait" runat="server" type="hidden"/> <!--First Portrait Image-->
@@ -462,6 +433,8 @@
                             </div>
 						</div>
                         
+                        <div class="clearfix" style="height:1em"></div>
+
                   </main>    
                     
                   <aside id="sec_wrapper" class="_30_m shadow_left tablet_view">
@@ -671,31 +644,124 @@
         
         </section>
         
-    </div>																	<!-- menu_lg -->
-    
-    <!-- <span>
-        <div id="testing_phone">
-        </div>
-        <div id="testing_tablet">
-        </div>
-        <div id="testing_desktop">
-        </div>
-        <div id="testing_desktop_lg">
-        </div>
-	</span> -->
-    
+    </div>																	<!-- menu_lg -->  
 </form>
 
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<!-- 
+<script type="text/javascript" src="lib/prod/project.min.js?v1.1"></script>
+-->
+<script type="text/javascript" src="lib/src/js/jquery.jscrollpane.min.js"></script>                
+<script type="text/javascript" src="lib/src/js/jquery.cycle2.js"></script>
+<script type="text/javascript" src="lib/src/js/ie-placeholder.js"></script>
+<script type="text/javascript" src="lib/src/js/server-query.js"></script>
+<script type="text/javascript" src="lib/src/js/index-page.js"></script>
+<script type="text/javascript" src="lib/src/js/packages-page.js"></script>
+<script type="text/javascript" src="lib/src/js/groups-page.js"></script>
+<script type="text/javascript" src="lib/src/js/contact-validation.js"></script>
+<script type="text/javascript" src="lib/src/js/downloads-page.js"></script>
+<script type="text/javascript" src="lib/src/js/build-links.js"></script>
+<script type="text/javascript" src="lib/src/js/watermark.js"></script>
+<script type="text/javascript" src="lib/src/js/to-top.js"></script>
+<script type="text/javascript" src="lib/src/js/page-info.js"></script>
+<script type="text/javascript" src="lib/src/js/page-style.js"></script>
+<script type="text/javascript" src="lib/src/js/page-loaded.js"></script>
+<script type="text/javascript" src="lib/src/js/menu-ctrls.js"></script>
+<script type="text/javascript" src="lib/src/js/ie-warning.js"></script>
+<script type="text/javascript" src="lib/src/js/analytics.js"></script>
+
 <script>
-	$(document).ready(function() {
-        function cart_load(){
-			$('#cart_load').removeClass('hidden');
-			setTimeout(function(){
-				$('#cart_load').addClass('hidden');
-			},900);
-		};
-		
-    });
+    var todaysDate, sic, userId, 
+        schoolData = eval("[" + document.getElementById('hSchoolData').value + "]"),
+        bannerImages = eval("[" + document.getElementById('hBannerImages').value + "]"),
+        firstPortraitData = eval("[" + document.getElementById('hFirstImgPortrait').value + "]"), 
+        firstGroupData = eval("[" + document.getElementById('hFirstImgGroup').value + "]"), 
+        portraitData = eval("[" + document.getElementById('hPortraitData').value + "]"),
+        groupData = null;
+</script>
+
+<script>
+
+// INITIALISE THE CANVAS APP
+$(function()
+{
+    var url, urlLength, sicCode, hasId, portalType;
+    
+    // HIDE HEADER FOR NOW
+    $('header').css('margin-top', '-3.8em');
+
+    // PARSE URL 
+    url = window.location.href;
+    urlLength = url.length;
+    sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
+    hasId = sicCode.search('userId=');
+
+    var startMenuControllers = new MenuControllers();
+    var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
+    var toTop = new ToTop('#to_top');
+
+    // THE URL HAS NO ID SO WE NEED TO CREATE ONE
+    if(hasId < 0 )
+    {
+        // ADD PORTAL END POINT FOR OUR USER
+        if(schoolData[0].CssStyle == 'sports')
+        {
+            portalType = 'sports';
+        }
+        else if(schoolData[0].CssStyle == 'family')
+        {
+            portalType = 'family';
+        } else {
+            portalType = 'school';
+        };
+
+        console.log('this is the style of page: ', schoolData[0].CssStyle)
+
+        // FROM WHERE END POINTS 
+        // [Community-school] [Community-sports] [advancedyou-school] [advancedyou-sports] [advancedyou-family]
+       
+        var getTime = new ServerRequest('http://192.168.0.216/AdvAPI/api/CurrentDate', 'GET', null, function(time)
+            {
+                var newGuestInfo = {
+                                        'isChanged': true,
+                                        'isDeleted': false,
+                                        'dateRequested': time, 
+                                        'formWhere': '[advancedyou-' + portalType + ']'
+                                };
+                           
+                var createGuest = new ServerRequest('http://192.168.0.216/AdvAPI/api/WGValues', 'POST', newGuestInfo, function(data)
+                    {
+                        userId = data.id;                      
+                        var buildLinks = new BuildLinks('?SIC=' + sicCode + '&userId=' + userId );   
+                        var addPageStyle = new PageStyle(schoolData[0].CssStyle);
+                        var pageIsLoaded = new PageIsLoaded();
+                    });
+            });       
+                
+    } else {
+        // USER ID ALREADY ASSIGNED
+        console.log('user id already assigned')
+        var buildLinks = new BuildLinks('?SIC=' + sicCode );
+        var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
+        var pageIsLoaded = new PageIsLoaded();
+    }
+
+    var downloadsInit = new DownloadsPage();
+    // NOT SURE WHAT THIS IS
+    /*
+    function cart_load()
+    {
+		$('#cart_load').removeClass('hidden');
+		setTimeout(function()
+        {
+			$('#cart_load').addClass('hidden');
+		},900);
+	};
+	*/
+});
+
 </script>
 
 </body>
