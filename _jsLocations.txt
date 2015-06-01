@@ -1,0 +1,30 @@
+
+*****************************
+	PROJECT NOTES
+
+
+TESTING LOCATIONS FOR JAVASCRIPT 
+
+<script type="text/javascript" src="lib/src/js/jquery.jscrollpane.min.js"></script>                
+<script type="text/javascript" src="lib/src/js/jquery.cycle2.js"></script>
+<script type="text/javascript" src="lib/src/js/ie-placeholder.js"></script>
+<script type="text/javascript" src="lib/src/js/server-query.js"></script>
+<script type="text/javascript" src="lib/src/js/index-page.js"></script>
+<script type="text/javascript" src="lib/src/js/packages-page.js"></script>
+<script type="text/javascript" src="lib/src/js/groups-page.js"></script>
+<script type="text/javascript" src="lib/src/js/contact-validation.js"></script>
+<script type="text/javascript" src="lib/src/js/downloads-page.js"></script>
+<script type="text/javascript" src="lib/src/js/build-links.js"></script>
+<script type="text/javascript" src="lib/src/js/watermark.js"></script>
+<script type="text/javascript" src="lib/src/js/to-top.js"></script>
+<script type="text/javascript" src="lib/src/js/page-info.js"></script>
+<script type="text/javascript" src="lib/src/js/page-style.js"></script>
+<script type="text/javascript" src="lib/src/js/page-loaded.js"></script>
+<script type="text/javascript" src="lib/src/js/menu-ctrls.js"></script>
+<script type="text/javascript" src="lib/src/js/ie-warning.js"></script>
+<script type="text/javascript" src="lib/src/js/analytics.js"></script>
+
+
+
+
+

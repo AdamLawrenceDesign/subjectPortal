@@ -8,9 +8,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			<!-- Meta Data -->
     <title>Subject Portal | Group Photos</title>   
     <link rel="shortcut icon" href="img/camera.png">								
-    <link rel="stylesheet" href="css/screen.css?v1.1" />
+    <link rel="stylesheet" href="lib/prod/screen.css?v1.1" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'>
-    <link type="text/css" href="css/jquery.jscrollpane.css" rel="stylesheet" media="all" />    
+    <link type="text/css" href="lib/prod/jquery.jscrollpane.css" rel="stylesheet" media="all" />    
 </head>
 
 <body oncopy="return false" oncontextmenu="return false">

@@ -81,7 +81,7 @@ $(window).load(function() {
 									}
 								}
 								
-								setAttributes(overlay, {'src':'img/overlay.png','alt':'','class':'overlay'});
+								setAttributes(overlay, {'src':'assets/img/overlay.png','alt':'','class':'overlay'});
 								$(overlay).css({'top': '35%','left': '25%', 'margin': '0','width':'50%'});
 								
 								$('.ProductThumb').parent().append(overlay);
@@ -97,7 +97,7 @@ $(window).load(function() {
 									UnitPrice = 8;						
 								
 								if(this.ServerData.length > 2 ){
-									var PortraitLink = 'img/icons/download_all.jpg';
+									var PortraitLink = 'assets/img/icons/download_all.jpg';
 									var template = $('#wrapperAll');
 									
 									template.removeClass('hidden');
@@ -121,7 +121,7 @@ $(window).load(function() {
 														'; PrimarySubjectID: ' + DownloadData.ServerData[0].PrimarySubjectID + 
 														'; LastName: ' + DownloadData.ServerData[0].LastName + 
 														'; FirstName: ' + DownloadData.ServerData[0].FirstName +
-														'; DstImage: https://advancedimage.com.au/subjectPortal/img/icons/download_all.jpg; YearPhoto: AllPhotos; Cost: ' + total + '.00' +
+														'; DstImage: https://advancedimage.com.au/subjectPortal/assets/img/icons/download_all.jpg; YearPhoto: AllPhotos; Cost: ' + total + '.00' +
 													    '; SIC: ' + DownloadData.ServerData[0].SIC;
 
 														
@@ -166,11 +166,11 @@ $(window).load(function() {
 								switch (CurrentCost){
 									
 									case 20 :
-										$(icon).attr('src','img/icons/new_image.png');
+										$(icon).attr('src','assets/img/icons/new_image.png');
 									break;
 										
 									case 0 :
-										$(icon).attr('src','img/icons/free_image.png');
+										$(icon).attr('src','assets/img/icons/free_image.png');
 										$('#wrapper0').find('strike').html('$ 8.00').removeClass('hidden').addClass('txt_red');
 										$('#wrapper0').find('.DownloadPrice').html('&nbsp;&nbsp;'+'$ 0.00');
 									break;

@@ -7,13 +7,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			<!-- Meta Data -->
     <title>School Photos</title>
     <link rel="shortcut icon" href="img/camera.png"> 								    
-    <link rel="stylesheet" href="css/screen.css?v1.1" />
- 
-    <!-- If IE  -->
+    <link rel="stylesheet" href="lib/prod/screen.css?v1.1" />
     <!--[if gte IE 9]>
           <link rel="stylesheet" href="css/screen_ie.css?v1.1" />
     <![endif]-->
-	
 </head>
 
 <body oncopy="return false" oncontextmenu="return false">
