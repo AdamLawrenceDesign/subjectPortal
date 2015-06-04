@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page language="C#" autoeventwireup="true" inherits="_index, App_Web_-tibnddc" %>
+<%@ page language="C#" autoeventwireup="true" inherits="_index, App_Web_6uoppshz" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			<!-- Meta Data -->
     <title>School Photos</title>
-    <link rel="shortcut icon" href="img/camera.png"> 								    
+    <link rel="shortcut icon" href="assets/img/camera.png"> 								    
     <link rel="stylesheet" href="lib/prod/screen.css?v1.1" />
     <!--[if gte IE 9]>
           <link rel="stylesheet" href="css/screen_ie.css?v1.1" />
@@ -21,11 +21,11 @@
     <input id="hFirstImgGroup" runat="server" type="hidden"/>    
     <input id="hPortraitData" runat="server" type="hidden" />
     <input id="hGroupData" runat="server" type="hidden" /> 
-    <input id="hUserId" type="hidden" />
+    <input id="hUserId" runat="server" type="hidden" />
     
     <div id="opening_load" class="fixed_max bg_fff middle linear">
     	<div class="absolute_vert_center inline" style="height:5em;">
-        	<img src="svg/loading/loader_grey.gif" alt="" />
+        	<img src="assets/svg/loading/loader_grey.gif" alt="" />
         	<h2 class="txt_sm m_m_top">LOADING...</h2>
         </div>
     </div>																	<!-- Loader -->
@@ -33,7 +33,7 @@
     <header class="prm box-shadow ease_sd pattern" style="margin-top:-3.8em;">
         <section class="align_ct">
             <a class="menu_lg_toggle clearfix fl_lt" href="#" ><span class="icon-paragraph-left txt_fff"></span></a>
-            <img id="header_logo" src="svg/advancedyou_fff.svg?v1.1" alt="" />
+            <img id="header_logo" src="assets/svg/advancedyou_fff.svg?v1.1" alt="" />
             <a class="link_line_bottom clearfix fl_rt" href="http://advancedlife.com.au/"><span class="icon-unlocked txt_fff"></span></a>
             <div class="clearfix"></div>
         </section>
@@ -53,7 +53,7 @@
             
              <ul class="inline fl_rt">
                 <li>
-                	<a id="cart" runat="server" class="cart" href="~/cart.aspx">
+                	<a id="cart" runat="server" class="cart" href="cart.aspx">
                     <span class="icon icon-cart txt_md txt_ntl m_l_right"></span><asp:label runat="server" id="lblTotal"></asp:label><asp:label runat="server" id="lblTotAmt">0.00</asp:label>
                     <asp:label runat="server" id="lblItems">( </asp:label><asp:label runat="server" id="lblQty"> 0</asp:label><asp:label runat="server" id="lblQty1"> )</asp:label>
                     </a>
@@ -82,10 +82,10 @@
                     <div class="underline_arrow m_l_top"></div>
                     
                     <ul class="links _p_m links_line_left">
-                        <li><a id="download1" runat="server" href="#" class="">Portrait Downloads<span class="icon icon-camera fl_rt"></span></a></li>
-                        <li><a id="group1" runat="server" href="#" class="">Group Photos<span class="icon icon-group fl_rt"></span></a></li>
-                        <li><a id="gift1" runat="server" href="#" class="">Gift Items<span class="icon icon-gift fl_rt"></span></a></li>
-                        <li><a id="package1" runat="server" href="#" class="">Photography Packages<span class="icon icon-paper fl_rt"></span></a></li>
+                        <li><a href="#" class="downloads">Portrait Downloads<span class="icon icon-camera fl_rt"></span></a></li>
+                        <li><a href="#" class="group_img">Group Photos<span class="icon icon-group fl_rt"></span></a></li>
+                        <li><a href="#" class="gift_items">Gift Items<span class="icon icon-gift fl_rt"></span></a></li>
+                        <li><a href="#" class="packages">Photography Packages<span class="icon icon-paper fl_rt"></span></a></li>
                     </ul>
                     
                     <div class="align_ct p_m block_ntl"><a href="#" class="additional_link" data-link="help">Need Help?</a></div>
@@ -218,7 +218,7 @@
     
         <section class="p_l_top p_m">
         
-            <img src="svg/logo_fff.svg" class="clearfix m_l_top m_l_bottom" alt="" />
+            <img src="assets/svg/logo_fff.svg" class="clearfix m_l_top m_l_bottom" alt="" />
             
             <p>We are a proudly Australian family owned and operated business with over 30 years experience.</p>
                 
@@ -252,7 +252,7 @@
        
        <section class="clearfix"><a href="#" class="collapse"><span class="icon-cross txt_lg txt_ntl_m fl_rt"></span></a></section>
        	
-       <img class="absolute_vert_center opacity_0" src="svg/loading/loader_grey.gif" style="height:1.8em" alt="" />
+       <img class="absolute_vert_center opacity_0" src="assets/svg/loading/loader_grey.gif" style="height:1.8em" alt="" />
 
        <section id="additional_wrap" class="relative align_lt clearfix"></section>
        
@@ -351,13 +351,14 @@ $(function()
     url = window.location.href;
     urlLength = url.length;
     sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
-    hasId = sicCode.search('userId=');
+    //hasId = sicCode.search('userId=');
 
     var startMenuControllers = new MenuControllers();
     var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
     var toTop = new ToTop('#to_top');
     
     // THE URL HAS NO ID SO WE NEED TO CREATE ONE
+     /*
     if(hasId < 0 )
     {
         // ADD PORTAL END POINT FOR OUR USER
@@ -376,6 +377,7 @@ $(function()
 
         // FROM WHERE END POINTS 
         // [Community-school] [Community-sports] [advancedyou-school] [advancedyou-sports] [advancedyou-family]
+       
         var getTime = new ServerRequest('http://192.168.0.216/AdvAPI/api/CurrentDate', 'GET', null, function(time)
             {
                 var newGuestInfo = {
@@ -390,6 +392,7 @@ $(function()
                         userId = data.id;       
 
                         // SET COOKIE FOR PAYMENT PAGES 
+                        alert(userId);
                         $('#hUserId').val(userId);
                         console.log($('#hUserId').val());
                         var buildLinks = new BuildLinks('?SIC=' + sicCode + '&userId=' + userId );   
@@ -409,7 +412,18 @@ $(function()
         var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
         var pageIsLoaded = new PageIsLoaded();
     }
+    */
+    
+    // USER ID ALREADY ASSIGNED
+    //console.log('user id already assigned');
 
+    //userId = $('#hUserId').val();
+    
+    //var buildLinks = new BuildLinks('?SIC=' + sicCode + '&userId=' + userId);
+    var buildLinks = new BuildLinks('?SIC=' + sicCode);
+    var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
+    var pageIsLoaded = new PageIsLoaded();    
+        
     var indexPage = new IndexPage(portraitData, groupData);
 });
 </script>

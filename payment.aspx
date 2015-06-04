@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page language="C#" autoeventwireup="true" inherits="_payment, App_Web_62dmgfxq" %>
+<%@ page language="C#" autoeventwireup="true" inherits="_payment, App_Web_6uoppshz" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -566,11 +566,12 @@ $(function()
     url = window.location.href;
     urlLength = url.length;
     sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
-    hasId = sicCode.search('userId=');
+    //hasId = sicCode.search('userId=');
 
     var startMenuControllers = new MenuControllers();
     var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
     var toTop = new ToTop('#to_top');
+    var buildLinks = new BuildLinks('?SIC=' + sicCode );
     var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
     var pageIsLoaded = new PageIsLoaded();
 
@@ -600,7 +601,7 @@ $(function()
 	
 	// Added links script from cart page - Arlen
 	// MAKE LINKS WORK
-	function CreateLinks()
+	/*function CreateLinks()
     {
 		var data =  eval("[" + document.getElementById('hFirstImgPortrait').value + "]");
 		var sic = data[0].SIC;
@@ -616,7 +617,7 @@ $(function()
 		$('.contact_us').attr( 'href' , 'contact_us.aspx?SIC=' + sic );	
 	};
 	
-	CreateLinks();
+	CreateLinks();*/
 
     // COUND HOW MANY TIME THE PAY BUTTON IS CLICKED
     $(document).on('click', '#btnYes', function(event)

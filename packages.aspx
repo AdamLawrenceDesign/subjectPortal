@@ -1,21 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page language="C#" autoeventwireup="true" inherits="_packages, App_Web_-tibnddc" %>	
-
+<%@ page language="C#" autoeventwireup="true" inherits="_packages, App_Web_6uoppshz" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			<!-- Meta Data -->
-
     <title>Subject Portal | Profile</title>
-    
     <link rel="shortcut icon" href="img/camera.png"> 								
-    
     <link rel="stylesheet" href="css/screen.css?v1.1" />
     <link type="text/css" href="css/jquery.jscrollpane.css" rel="stylesheet" media="all" />				<!-- styles needed by jScrollPane -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'>
-
-	
 </head>
 
 <body oncopy="return false" oncontextmenu="return false">
@@ -33,7 +26,7 @@
        <ProgressTemplate>
             <div class="fixed_max linear ease_sd opacity_fff_9 top_max">
                 <div class="absolute_vert_center inline" style="height:5em;">
-                    <img src="svg/loading/loader_grey.gif" alt="" />
+                    <img src="assets/svg/loading/loader_grey.gif" alt="" />
                     <h2 class="txt_sm m_m_top">ADDING TO CART</h2>
                 </div>
             </div>															
@@ -42,7 +35,7 @@
 
     <div id="opening_load" class="fixed_max bg_fff linear top">
     	<div class="absolute_vert_center inline" style="height:5em;">
-        	<img src="svg/loading/loader_grey.gif" alt="" />
+        	<img src="assets/svg/loading/loader_grey.gif" alt="" />
         	<h2 class="txt_sm m_m_top">LOADING...</h2>
         </div>
     </div>																	<!-- Loader -->
@@ -50,7 +43,7 @@
     <header class="prm box-shadow ease_sd pattern" style="margin-top:-3.8em;">
         <section class="align_ct">
             <a class="menu_lg_toggle clearfix fl_lt" href="#" ><span class="icon-paragraph-left txt_fff"></span></a>
-            <img id="header_logo" src="svg/advancedyou_fff.svg?v1.1" alt="" />
+            <img id="header_logo" src="assets/svg/advancedyou_fff.svg?v1.1" alt="" />
             <a class="link_line_bottom clearfix fl_rt" href="http://advancedlife.com.au/"><span class="icon-unlocked txt_fff"></span></a>
             <div class="clearfix"></div>
         </section>
@@ -92,7 +85,7 @@
             
             <main class="_70_m clearfix m_l_bottom relative border-right">
 					
-                    <img class="load_item hidden" src="svg/loading/loader_grey.gif" alt="" style="top:8em;bottom:auto"/>
+                    <img class="load_item hidden" src="assets/svg/loading/loader_grey.gif" alt="" style="top:8em;bottom:auto"/>
                     
                     <div id="landing"><!--  class="hidden" -->
                     
@@ -121,7 +114,7 @@
                                 
                                 	<div class="package_info_wrapper relative ease_fast">
                                     	
-                                    	<img class="load_item hidden" src="svg/loading/loader_grey.gif" alt=""/> 
+                                    	<img class="load_item hidden" src="assets/svg/loading/loader_grey.gif" alt=""/> 
                                     
                                         <h3><span class="pack_year">2014</span> | <span class="pack_type">Photobook</span> Package </h3>
                                         <h4><span class="pack_title">Regular Package</span><span class="fl_rt txt_red price">$ 55.00</span></h4>
@@ -175,7 +168,7 @@
                                 
                                 	<div class="package_info_wrapper relative">
                                     	
-                                    	<img class="load_item hidden" src="svg/loading/loader_grey.gif"/>
+                                    	<img class="load_item hidden" src="assets/svg/loading/loader_grey.gif"/>
                                     
                                         <h3><span class="pack_year">2014</span> | <span class="pack_type">Photobook</span> Package </h3>
                                         <h4><span class="pack_title">Regular Package</span><span class="fl_rt txt_red price">$ 55.00</span></h4>
@@ -227,7 +220,7 @@
                                 
                                 	<div class="package_info_wrapper relative">
                                     	
-                                    	<img class="load_item hidden" src="svg/loading/loader_grey.gif"/>
+                                    	<img class="load_item hidden" src="assets/svg/loading/loader_grey.gif"/>
                                     
                                         <h3><span class="pack_year">2014</span> | <span class="pack_type">Photobook</span> Package </h3>
                                         <h4><span class="pack_title">Regular Package</span><span class="fl_rt txt_red price">$ 55.00</span></h4>
@@ -280,7 +273,7 @@
                                 
                                 	<div class="package_info_wrapper relative">
                                     	
-                                    	<img class="load_item hidden" src="svg/loading/loader_grey.gif"/>
+                                    	<img class="load_item hidden" src="assets/svg/loading/loader_grey.gif"/>
                                     
                                         <h3><span class="pack_year">2014</span> | <span class="pack_type">Photobook</span> Package </h3>
                                         <h4><span class="pack_title">Regular Package</span><span class="fl_rt txt_red price">$ 55.00</span></h4>
@@ -333,7 +326,7 @@
                                 
                                 	<div class="package_info_wrapper relative">
                                     	
-                                    	<img class="load_item hidden" src="svg/loading/loader_grey.gif"/>
+                                    	<img class="load_item hidden" src="assets/svg/loading/loader_grey.gif"/>
                                     
                                         <h3><span class="pack_year">2014</span> | <span class="pack_type">Photobook</span> Package </h3>
                                         <h4><span class="pack_title">Regular Package</span><span class="fl_rt txt_red price">$ 55.00</span></h4>
@@ -387,7 +380,7 @@
                                 
                                 	<div class="package_info_wrapper relative">
                                     	
-                                    	<img class="load_item hidden" src="svg/loading/loader_grey.gif"/>
+                                    	<img class="load_item hidden" src="assets/svg/loading/loader_grey.gif"/>
                                     
                                         <h3><span class="pack_year">2014</span> | <span class="pack_type">Photobook</span> Package </h3>
                                         <h4><span class="pack_title">Regular Package</span><span class="fl_rt txt_red price">$ 55.00</span></h4>
@@ -441,7 +434,7 @@
                                 
                                 	<div class="package_info_wrapper relative">
                                     	
-                                    	<img class="load_item hidden" src="svg/loading/loader_grey.gif"/>
+                                    	<img class="load_item hidden" src="assets/svg/loading/loader_grey.gif"/>
                                     
                                         <h3><span class="pack_year">2014</span> | <span class="pack_type">Photobook</span> Package </h3>
                                         <h4><span class="pack_title">Regular Package</span><span class="fl_rt txt_red price">$ 55.00</span></h4>
@@ -494,7 +487,7 @@
                                 
                                 	<div class="package_info_wrapper relative">
                                     	
-                                    	<img class="load_item hidden" src="svg/loading/loader_grey.gif"/>
+                                    	<img class="load_item hidden" src="assets/svg/loading/loader_grey.gif"/>
                                     
                                         <h3><span class="pack_year">2014</span> | <span class="pack_type">Photobook</span> Package </h3>
                                         <h4><span class="pack_title">Regular Package</span><span class="fl_rt txt_red price">$ 55.00</span></h4>
@@ -547,7 +540,7 @@
                                 
                                 	<div class="package_info_wrapper relative">
                                     	
-                                    	<img class="load_item hidden" src="svg/loading/loader_grey.gif"/>
+                                    	<img class="load_item hidden" src="assets/svg/loading/loader_grey.gif"/>
                                     
                                         <h3><span class="pack_year">2014</span> | <span class="pack_type">Photobook</span> Package </h3>
                                         <h4><span class="pack_title">Regular Package</span><span class="fl_rt txt_red price">$ 55.00</span></h4>
@@ -599,7 +592,7 @@
                                 
                                 	<div class="package_info_wrapper relative">
                                     	
-                                    	<img class="load_item hidden" src="svg/loading/loader_grey.gif"/>
+                                    	<img class="load_item hidden" src="assets/svg/loading/loader_grey.gif"/>
                                     
                                         <h3><span class="pack_year">2014</span> | <span class="pack_type">Photobook</span> Package </h3>
                                         <h4><span class="pack_title">Regular Package</span><span class="fl_rt txt_red price">$ 55.00</span></h4>
@@ -652,7 +645,7 @@
                                 
                                 	<div class="package_info_wrapper relative">
                                     	
-                                    	<img class="load_item hidden" src="svg/loading/loader_grey.gif"/>
+                                    	<img class="load_item hidden" src="assets/svg/loading/loader_grey.gif"/>
                                     
                                         <h3><span class="pack_year">2014</span> | <span class="pack_type">Photobook</span> Package </h3>
                                         <h4><span class="pack_title">Regular Package</span><span class="fl_rt txt_red price">$ 55.00</span></h4>
@@ -705,7 +698,7 @@
                                 
                                 	<div class="package_info_wrapper relative">
                                     	
-                                    	<img class="load_item hidden" src="svg/loading/loader_grey.gif"/>
+                                    	<img class="load_item hidden" src="assets/svg/loading/loader_grey.gif"/>
                                     
                                         <h3><span class="pack_year">2014</span> | <span class="pack_type">Photobook</span> Package </h3>
                                         <h4><span class="pack_title">Regular Package</span><span class="fl_rt txt_red price">$ 55.00</span></h4>
@@ -785,48 +778,7 @@
                             </ul>
                         
                         </div>
-                        	
-                        <!-- 			Alternative Options
-                        <div class="title_ntl align_lt">
-                            Top Sellers
-                        </div>
-            
-                        <div class="link clearfix shadow_left" style="border-left:1px solid #ddd">
-                        
-                                <div class="p_m clearfix add_item">
-                                    <h4>ALL IMAGES</h4>
-                                    <p>High Resolution Download</p>
-                                    <strike class="all_strike">$ 42.00</strike>
-                                    <span class="image_name all_price" style="color:red"> &nbsp;$ 22.00</span><br/>
-                                    <a class="txt_sm m_l_top"><span class="txt_sm">INFORMATION</span></a>
-                                    
-                                        <button class="bg_sec button_sd _100 m_l_top square">ADD TO CART</button>
-                                </div>
-                                
-                                <div class="underline_solid m_l_top m_l_bottom"></div>
-                                
-                                <div class="p_m clearfix align_ct">
-                                    <a href="event_sponsorship.html">
-                                        <img src="img/subject_img/groups/2T_2010.jpg" class="preview_pack full" alt=""/>
-                                        <p><span>Sports Images</span></p>
-                                        <span class="txt_sm">View latest</span>
-                                    </a>
-                                </div>
-                                
-                                <div class="underline_solid m_l_top m_l_bottom"></div>
-                                
-                                <div class="p_m clearfix align_ct">
-                                    <a href="event_sponsorship.html">
-                                        <img src="img/pack.jpg" class="full preview_pack" alt=""/>
-                                        <p><span>Photography Packages</span></p>
-                                        <span class="txt_sm">Past years available</span>
-                                        <p>Click Here</p>
-                                    </a>
-                                </div>
-                            
-                        </div>
-                        -->
-                        
+                        	                      
                   </aside>
                   
             <div class="clearfix"></div>
@@ -863,7 +815,7 @@
     
         <section class="p_l_top p_m">
         
-            <img src="svg/logo_fff.svg" class="clearfix m_l_top m_l_bottom" alt="" />
+            <img src="assets/svg/logo_fff.svg" class="clearfix m_l_top m_l_bottom" alt="" />
             
             <p>We are a proudly Australian family owned and operated business with over 30 years experience.</p>
                 
@@ -897,7 +849,7 @@
        
        <section class="clearfix"><a href="#" class="collapse"><span class="icon-cross txt_lg txt_ntl_m fl_rt"></span></a></section>
        	
-       <img class="absolute_vert_center opacity_0" src="svg/loading/loader_grey.gif" style="height:1.8em" alt="" />
+       <img class="absolute_vert_center opacity_0" src="assets/svg/loading/loader_grey.gif" style="height:1.8em" alt="" />
 
        <section id="additional_wrap" class="relative align_lt clearfix"></section>
        
@@ -997,14 +949,14 @@ $(function()
     url = window.location.href;
     urlLength = url.length;
     sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
-    hasId = sicCode.search('userId=');
+    //hasId = sicCode.search('userId=');
 
     var startMenuControllers = new MenuControllers();
     var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
     var toTop = new ToTop('#to_top');
 
     // THE URL HAS NO ID SO WE NEED TO CREATE ONE
-    if(hasId < 0 )
+    /*if(hasId < 0 )
     {
         // ADD PORTAL END POINT FOR OUR USER
         if(schoolData[0].CssStyle == 'sports')
@@ -1038,14 +990,13 @@ $(function()
                         var pageIsLoaded = new PageIsLoaded();
                     });
             });                    
-    } else {
+    } else {*/
         // USER ID ALREADY ASSIGNED
-        console.log('user id already assigned')
+        //console.log('user id already assigned')
         var buildLinks = new BuildLinks('?SIC=' + sicCode );
         var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
         var pageIsLoaded = new PageIsLoaded();
-    }
-
+    //}
     // INITALISE PACKAGES 
     var packagesPage = new PackagesPage();
 });

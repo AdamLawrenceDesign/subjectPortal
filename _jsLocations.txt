@@ -25,6 +25,41 @@ TESTING LOCATIONS FOR JAVASCRIPT
 <script type="text/javascript" src="lib/src/js/analytics.js"></script>
 
 
+    /*if(hasId < 0 )
+    {
+        // ADD PORTAL END POINT FOR OUR USER
+        if(schoolData[0].CssStyle == 'sports')
+        {
+            portalType = 'sports';
+        }
+        else if(schoolData[0].CssStyle == 'family')
+        {
+            portalType = 'family';
+        } else {
+            portalType = 'school';
+        };
 
+        console.log('this is the style of page: ', schoolData[0].CssStyle)
+
+        // FROM WHERE END POINTS 
+        // [Community-school] [Community-sports] [advancedyou-school] [advancedyou-sports] [advancedyou-family]
+        var getTime = new ServerRequest('http://192.168.0.216/AdvAPI/api/CurrentDate', 'GET', null, function(time)
+            {
+                var newGuestInfo = {
+                                        'isChanged': true,
+                                        'isDeleted': false,
+                                        'dateRequested': time, 
+                                        'formWhere': '[advancedyou-' + portalType + ']'
+                                };
+                           
+                var createGuest = new ServerRequest('http://192.168.0.216/AdvAPI/api/WGValues', 'POST', newGuestInfo, function(data)
+                    {
+                        userId = data.id;                      
+                        var buildLinks = new BuildLinks('?SIC=' + sicCode + '&userId=' + userId );   
+                        var addPageStyle = new PageStyle(schoolData[0].CssStyle);
+                        var pageIsLoaded = new PageIsLoaded();
+                    });
+            });               
+    } else {*/
 
 

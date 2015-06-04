@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page language="C#" autoeventwireup="true" inherits="_messageSent, App_Web_-tibnddc" %>
+<%@ page language="C#" autoeventwireup="true" inherits="_messageSent, App_Web_6uoppshz" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head run at="server">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>		
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Subject Portal | Confirmation</title>
-    <link rel="shortcut icon" href="img/camera.png"> 								  
-    <link rel="stylesheet" href="css/screen.css?v1.1" />
+    <link rel="shortcut icon" href="assets/img/camera.png"> 								  
+    <link rel="stylesheet" href="lib/prod/screen.css?v1.1" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'>
 </head>
 
@@ -20,7 +20,7 @@
         
     <div id="opening_load" class="fixed_max bg_fff middle linear">
     	<div class="absolute_vert_center inline" style="height:5em;">
-        	<img src="svg/loading/loader_grey.gif" alt="" />
+        	<img src="assets/svg/loading/loader_grey.gif" alt="" />
         	<h2 class="txt_sm m_m_top">LOADING...</h2>
         </div>
     </div>																	<!-- Loader -->
@@ -30,7 +30,7 @@
         <section class="align_ct">
 
             <a class="menu_lg_toggle clearfix fl_lt" href="#" ><span class="icon-paragraph-left txt_lg txt_fff"></span></a>
-            <img id="header_logo" src="svg/logo_fff.svg?v1.1" alt="" />
+            <img id="header_logo" src="assets/svg/logo_fff.svg?v1.1" alt="" />
             <a class="link_line_bottom clearfix fl_rt" href="http://advancedlife.com.au/"><span class="icon-unlocked txt_lg txt_fff"></span></a>
             <div class="clearfix"></div>
             
@@ -149,7 +149,7 @@
     
         <section class="p_l_top p_m">
         
-            <img src="svg/logo_fff.svg" class="clearfix m_l_top m_l_bottom" alt="" />
+            <img src="assets/svg/logo_fff.svg" class="clearfix m_l_top m_l_bottom" alt="" />
             
             <p>We are a proudly Australian family owned and operated business with over 30 years experience.</p>
                 
@@ -269,13 +269,10 @@
         </section>
         
     </div>																	<!-- menu_help_lg -->
-	
-
 
 </form>
 
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
-<script type="text/javascript" src="js/jquery.cycle2.min.js?v1.1"></script>
 <script type="text/javascript" src="lib/prod/project.min.js?v1.1"></script>
 <script>
     var todaysDate, sic, userId, 
@@ -299,16 +296,17 @@ $(function()
     url = window.location.href;
     urlLength = url.length;
     sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
-    hasId = sicCode.search('userId=');
+    //hasId = sicCode.search('userId=');
 
     var startMenuControllers = new MenuControllers();
     var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
     var toTop = new ToTop('#to_top');
+    var buildLinks = new BuildLinks('?SIC=' + sicCode );
     var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
     var pageIsLoaded = new PageIsLoaded();    
 
     //Added links script from cart page - Arlen
-    function CreateLinks()
+   /* function CreateLinks()
     {    
         var data =  eval("[" + document.getElementById('hFirstImgPortrait').value + "]");
         var sic = data[0].SIC;
@@ -325,8 +323,8 @@ $(function()
         
     };  
     CreateLinks();
+});*/
 });
-
 </script>
 
 </body>

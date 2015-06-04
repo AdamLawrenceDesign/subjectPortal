@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page language="C#" autoeventwireup="true" inherits="_cart, App_Web_bh5c9eha" %>
+<%@ page language="C#" autoeventwireup="true" inherits="_cart, App_Web_6uoppshz" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -441,7 +441,7 @@ $(function()
     url = window.location.href;
     urlLength = url.length;
     sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
-    hasId = sicCode.search('userId=');
+    //hasId = sicCode.search('userId=');
 
     var startMenuControllers = new MenuControllers();
     var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
@@ -449,6 +449,7 @@ $(function()
     var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
 
     // THE URL HAS NO ID SO WE NEED TO CREATE ONE
+    /*
     if(hasId < 0 )
     {
         // ADD PORTAL END POINT FOR OUR USER
@@ -482,13 +483,14 @@ $(function()
                         var pageIsLoaded = new PageIsLoaded();
                     });
             });               
-    } else {
+    } else {*/
         // USER ID ALREADY ASSIGNED
-        console.log('user id already assigned', sicCode)
+        //console.log('user id already assigned', sicCode)
         var buildLinks = new BuildLinks('?SIC=' + sicCode );
         var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
         var pageIsLoaded = new PageIsLoaded();
-    }
+    //}
+    
     // ROUTINES SPECIFIC FOR THIS PAGE
     var object = $('th').attr('scope','col');
 		object.css({'background':'#fafafa','font-weight':'500','font-family':'"Open Sans", sans-serif'}); 

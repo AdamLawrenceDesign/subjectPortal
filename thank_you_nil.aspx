@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page language="C#" autoeventwireup="true" inherits="_thankyouNil, App_Web_-tibnddc" %>
+<%@ page language="C#" autoeventwireup="true" inherits="_thankyouNil, App_Web_6uoppshz" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head run at="server">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>				
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />		
     <title>Subject Portal | Confirmation</title>
-    <link rel="shortcut icon" href="img/camera.png"> 								  
-    <link rel="stylesheet" href="css/screen.css?v1.1" />
+    <link rel="shortcut icon" href="assets/img/camera.png"> 								  
+    <link rel="stylesheet" href="lib/prod/screen.css?v1.1" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'>
     <!--[if gte IE 9]>
           <link rel="stylesheet" href="css/screen_ie.css?v1.1" />
@@ -14,11 +14,10 @@
 </head>
 
 <body>
-
 <form id="form1" runat="server">
                     
       <asp:ScriptManager ID="ScriptManager1" runat="server">
-      </asp:ScriptManager><!--asp ajax element--->
+      </asp:ScriptManager><!--asp ajax element -->
 
      <input id="hSchoolData" runat="server" type="hidden"/> 								<!-- Client Information-->
      <input id="hBannerImages" runat="server" type="hidden"/> 							    <!-- Banner Images-->
@@ -27,7 +26,7 @@
     
     <div id="opening_load" class="fixed_max bg_fff middle linear">
     	<div class="absolute_vert_center inline" style="height:5em;">
-        	<img src="svg/loading/loader_grey.gif" alt="" />
+        	<img src="assets/svg/loading/loader_grey.gif" alt="" />
         	<h2 class="txt_sm m_m_top">LOADING...</h2>
         </div>
     </div>																	<!-- Loader -->
@@ -35,7 +34,7 @@
     <header class="prm box-shadow ease_sd pattern" style="margin-top:-3.8em;">
         <section class="align_ct">
             <a class="menu_lg_toggle clearfix fl_lt" href="#" ><span class="icon-paragraph-left txt_fff"></span></a>
-            <img id="header_logo" src="svg/advancedyou_fff.svg?v1.1" alt="" />
+            <img id="header_logo" src="assets/svg/advancedyou_fff.svg?v1.1" alt="" />
             <a class="link_line_bottom clearfix fl_rt" href="http://advancedlife.com.au/"><span class="icon-unlocked txt_fff"></span></a>
             <div class="clearfix"></div>
         </section>
@@ -44,8 +43,8 @@
     <nav class="clearfix prm_lt">
     
         <section>
-        
-            <ul class="inline fl_lt">
+                   
+            <ul class="inline fl_lt desktop_view">
                 <li><a href="index.aspx" class="index"><span>Home</span></a></li>
                 <li><a href="downloads.aspx" class="downloads"><span>Portrait Downloads</span></a></li>
                 <li><a href="group_img.aspx" class="group_img"><span>Group Photos</span></a></li>
@@ -104,12 +103,12 @@
                     <a href="" class="round_sd border_box button inline_block txt_sm link_button index"><span class="icon-forward txt_fff m_m_right"></span>Continue Shopping</a>
                 </div>				<!-- aside checkout -->
     
-                <ul class="links _p_m links_line_left">
-                    <li><a href="#" class="downloads">Portrait Downloads<span class="icon icon-camera fl_rt"></span></a></li>
-                    <li><a href="#" class="group_img">Group Photos<span class="icon icon-group fl_rt"></span></a></li>
-                    <li><a href="#" class="gift_items">Gift Items<span class="icon icon-gift fl_rt"></span></a></li>
-                    <li><a href="#" class="packages">Photography Packages<span class="icon icon-paper fl_rt"></span></a></li>
-                    <li><a href="#" class="contact_us">Contact Us<span class="icon icon-mail fl_rt"></span></a></li>
+                <ul class="links _p_m links_line_left">                   
+                    <li><a href="downloads.aspx" class="downloads">Portrait Downloads<span class="icon icon-camera fl_rt"></span></a></li>
+                    <li><a href="group_img.aspx" class="group_img">Group Photos<span class="icon icon-group fl_rt"></span></a></li>
+                    <li><a href="gift_items.aspx" class="gift_items">Gift Items<span class="icon icon-gift fl_rt"></span></a></li>
+                    <li><a href="packages.aspx" class="packages">Photography Packages<span class="icon icon-paper fl_rt"></span></a></li>
+                    <li><a href="contact_us.aspx" class="contact_us">Contact Us<span class="icon icon-mail fl_rt"></span></a></li>
                 </ul>
 
             </aside>
@@ -144,20 +143,20 @@
     
         <section class="p_l_top p_m">
         
-            <img src="svg/logo_fff.svg" class="clearfix m_l_top m_l_bottom" alt="" />
+            <img src="assets/svg/logo_fff.svg" class="clearfix m_l_top m_l_bottom" alt="" />
             
             <p>We are a proudly Australian family owned and operated business with over 30 years experience.</p>
                 
             <div class="underline_dotted m_l_top m_l_bottom"></div>
             
             <span class="_33_m p_l txt_sm">
-                <a href="#" class="contact_us"><span class="icon-inline icon-mail txt_lg txt_fff"></span><span class="event_email">CONTACT US</span></a>
+                <a href="contact_us.aspx" class="contact_us"><span class="icon-inline icon-mail txt_lg txt_fff"></span><span class="event_email">CONTACT US</span></a>
             </span>
             <span class="_33_m p_l txt_sm">
-                <a href="#" class="contact_us"><span class="icon-inline icon-phone txt_lg txt_fff"></span><span class="event_phone">1300 728 972</span></a>
+                <a href="contact_us.aspx" class="contact_us"><span class="icon-inline icon-phone txt_lg txt_fff"></span><span class="event_phone">1300 728 972</span></a>
             </span>
             <span class="_33_m p_l txt_sm">
-                <a href="#" class="index"><span class="icon-inline icon-home txt_lg txt_fff"></span><span class="event_address">HOME</span></a>
+                <a href="index.aspx" class="index"><span class="icon-inline icon-home txt_lg txt_fff"></span><span class="event_address">HOME</span></a>
             </span>
             <div class="clearfix"></div>
             
@@ -178,7 +177,7 @@
        
        <section class="clearfix"><a href="#" class="collapse"><span class="icon-cross txt_lg txt_ntl_m fl_rt"></span></a></section>
        	
-       <img class="absolute_vert_center opacity_0" src="svg/loading/loader_grey.gif" style="height:1.8em" alt="" />
+       <img class="absolute_vert_center opacity_0" src="assets/svg/loading/loader_grey.gif" style="height:1.8em" alt="" />
 
        <section id="additional_wrap" class="relative align_lt clearfix"></section>
        
@@ -252,36 +251,49 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="lib/prod/project.min.js?v1.1"></script>
+<script>
+    var todaysDate, sic, userId, 
+        schoolData = eval("[" + document.getElementById('hSchoolData').value + "]"),
+        bannerImages = eval("[" + document.getElementById('hBannerImages').value + "]"),
+        firstPortraitData = eval("[" + document.getElementById('hFirstImgPortrait').value + "]"), 
+        firstGroupData = eval("[" + document.getElementById('hFirstImgGroup').value + "]"), 
+        portraitData = null,
+        groupData = null;
+</script>  
+<script type="text/javascript">
+// INITALISE APP
+$(function()
+{
+    var url, urlLength, sicCode, hasId, portalType;
 
+    // HIDE HEADER FOR NOW
+    $('header').css('margin-top', '-3.8em');
 
-   <script type="text/javascript">
+    // PARSE URL 
+    url = window.location.href;
+    urlLength = url.length;
+    sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
 
-	$(document).ready(function(){
-        		
-		//Added links script from cart page - Arlen
-		// ====================================================== // 								// 			Make Links Work
+    /*var startMenuControllers = new MenuControllers();
+    var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
+    var toTop = new ToTop('#to_top');
+    var addPageStyle = new PageStyle(schoolData[0].CssStyle);*/        
+
+   
+    var buildLinks = new BuildLinks('?SIC=' + sicCode );
+    var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
+    var pageIsLoaded = new PageIsLoaded();
+
+    
+       setTimeout(function(){
+			var ReceiptNumber = $('#ipsReceipt').html();
+			$('#ReceiptNumber').html(ReceiptNumber);
+		},300);
 		
-		function CreateLinks(){
-			
-			var data =  eval("[" + document.getElementById('hFirstImgPortrait').value + "]");
-			var sic = data[0].SIC;
-			
-			$('.index').attr( 'href' , 'index.aspx?SIC=' + sic );
-			$('.downloads').attr( 'href' , 'downloads.aspx?SIC=' + sic );
-			$('.group_img').attr( 'href' , 'group_img.aspx?SIC=' + sic );
-			$('.packages').attr( 'href' , 'packages.aspx?SIC=' + sic );
-			$('.gift_items').attr( 'href' , 'gift_items.aspx?SIC=' + sic );
-			$('.payment').attr( 'href' , 'payment.aspx?SIC=' + sic );
-			$('.thank_you').attr( 'href' , 'thank_you.aspx?SIC=' + sic );
-			$('.cart').attr( 'href' , 'cart.aspx?SIC=' + sic );
-			$('.contact_us').attr( 'href' , 'contact_us.aspx?SIC=' + sic );
-			
-		};
-		
-		CreateLinks();
-		
-    });
-    </script>
+});
+   
+</script>
    
 </body>
 

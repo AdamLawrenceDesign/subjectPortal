@@ -2,6 +2,8 @@
 
 $(window).load(function() {
 
+	var count = 0;
+
 	var contact_validation = {
 				
 				ClientInfo : eval("[" + document.getElementById('hSchoolData').value + "]"),
@@ -119,8 +121,7 @@ $(window).load(function() {
 
 					!filter.test(value) === true ? error(event): valid(event);
 				}
-				
-									
+												
 	};
 	
 	contact_validation.update_details();
@@ -193,6 +194,14 @@ $(window).load(function() {
 		} else {
 			$('#form_errors').removeClass('m_l_top').html('');
 			console.log('success');
+
+			count = count + 1;
+
+	        if(count > 0)
+	        {
+	          $('#submit').css('pointer-events','none');
+	        };	
+
 		}
 		
 	});

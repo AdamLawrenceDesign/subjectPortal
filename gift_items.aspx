@@ -1,19 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page language="C#" autoeventwireup="true" inherits="_giftItems, App_Web_-tibnddc" %>
+<%@ page language="C#" autoeventwireup="true" inherits="_giftItems, App_Web_6uoppshz" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>				<!-- Detect Mobile devices -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			<!-- Meta Data -->
     <title>Subject Portal | Downloads</title>
     <link rel="shortcut icon" href="img/camera.png"> 								
-    <link rel="stylesheet" href="css/screen.css?v1.1" />
+    <link rel="stylesheet" href="lib/prod/screen.css?v1.1" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'/>
-
     <!--[if gte IE 9]>
           <link rel="stylesheet" href="css/screen_ie.css?v1.1" />
     <![endif]-->	
 <style>
-
     #loading-main
     {
         position:absolute;
@@ -95,7 +93,7 @@
     
     <div id="opening_load" class="fixed_max bg_fff middle linear">
     	<div class="absolute_vert_center inline" style="height:5em;">
-        	<img src="svg/loading/loader_grey.gif" alt="" />
+        	<img src="assets/svg/loading/loader_grey.gif" alt="" />
         	<h2 class="txt_sm m_m_top">LOADING...</h2>
         </div>
     </div>																	<!-- Loader -->
@@ -103,7 +101,7 @@
     <header class="prm box-shadow ease_sd pattern" style="margin-top:-3.8em;">
         <section class="align_ct">
             <a class="menu_lg_toggle clearfix fl_lt" href="#" ><span class="icon-paragraph-left txt_fff"></span></a>
-            <img id="header_logo" src="svg/advancedyou_fff.svg?v1.1" alt="" />
+            <img id="header_logo" src="assets/svg/advancedyou_fff.svg?v1.1" alt="" />
             <a class="link_line_bottom clearfix fl_rt" href="http://advancedlife.com.au/"><span class="icon-unlocked txt_fff"></span></a>
             <div class="clearfix"></div>
         </section>
@@ -246,7 +244,7 @@
     <footer>    
         <section class="p_l_top p_m">
         
-            <img src="svg/logo_fff.svg" class="clearfix m_l_top m_l_bottom" alt="" />
+            <img src="assets/svg/logo_fff.svg" class="clearfix m_l_top m_l_bottom" alt="" />
             
             <p>We are a proudly Australian family owned and operated business with over 30 years experience.</p>
                 
@@ -277,7 +275,7 @@
 
     <div id="additional_content" class="p_xl border_box align_ct">
        <section class="clearfix"><a href="#" class="collapse"><span class="icon-cross txt_lg txt_ntl_m fl_rt"></span></a></section>
-       <img class="absolute_vert_center opacity_0" src="svg/loading/loader_grey.gif" style="height:1.8em" alt="" />
+       <img class="absolute_vert_center opacity_0" src="assets/svg/loading/loader_grey.gif" style="height:1.8em" alt="" />
        <section id="additional_wrap" class="relative align_lt clearfix"></section>
        <section class="clearfix"><a href="#" class="collapse"><span class="icon-arrow-up txt_lg txt_ntl_m fl_rt"></span></a></section>
     </div>															
@@ -346,11 +344,7 @@
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="lib/prod/project.min.js?v1.1"></script>
-
 <script type="text/javascript" src="lib/src/js/masonry.pkgd.min.js?v1.1"></script>
-<!-- 
-<script type="text/javascript" src="lib/src/preLoader.js?v1.1"></script>
--->
 <script type="text/javascript" src="lib/src/js/list-builder.js?v1.1"></script>
 
 <script>
@@ -381,14 +375,13 @@ $(function()
     url = window.location.href;
     urlLength = url.length;
     sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
-    hasId = sicCode.search('userId=');
+    userId = url.slice(url.search("userId=") + 7, url.search("&end")).replace(/#/g, '');
 
     var startMenuControllers = new MenuControllers();
     var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
     var toTop = new ToTop('#to_top');
 
-
-    // ADD PORTAL END POINT FOR OUR USER
+    // ADD PORTAL END POINT FOR OUR USER   END POINTS   [Community-school] [Community-sports] [advancedyou-school] [advancedyou-sports] [advancedyou-family]
     if(schoolData[0].CssStyle == 'sports')
     {
         portalType = 'sports';
@@ -400,13 +393,8 @@ $(function()
         portalType = 'school';
     };
 
-    console.log('this is the style of page: ', schoolData[0].CssStyle)
-
-    // FROM WHERE END POINTS 
-    // [Community-school] [Community-sports] [advancedyou-school] [advancedyou-sports] [advancedyou-family]
-
     // USER ID ALREADY ASSIGNED
-    userId = url.slice(url.search("userId=") + 7, url.length).replace(/#/g, '');
+    //userId = url.slice(url.search("userId=") + 7, url.length).replace(/#/g, '');
 
     var buildLinks = new BuildLinks('?SIC=' + sicCode );
     var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
@@ -419,7 +407,7 @@ $(function()
 
     var userData = firstPortraitData; 
 
-    website = 'advanceyou-' + portalType;
+    website = 'advancedyou-' + portalType;
     type = 'newCartItem';               // type = 'cartItem';
     webLink = 'SIC=' + id1; 
 
@@ -436,6 +424,8 @@ $(function()
         {
             var loadFirstLevel = new BuildList(null, website, userInfo, type, data);
         });
+
+    // console.log('user id: ', userId)
 
 });
 </script>

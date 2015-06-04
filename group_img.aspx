@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page language="C#" autoeventwireup="true" inherits="_groupImg, App_Web_-tibnddc" %>
+<%@ page language="C#" autoeventwireup="true" inherits="_groupImg, App_Web_6uoppshz" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajx" %>
 <%@ Register Assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI" TagPrefix="asp" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -7,10 +7,9 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>				<!-- Detect Mobile devices -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />			<!-- Meta Data -->
     <title>Subject Portal | Group Photos</title>   
-    <link rel="shortcut icon" href="img/camera.png">								
+    <link rel="shortcut icon" href="assets/img/camera.png">								
     <link rel="stylesheet" href="lib/prod/screen.css?v1.1" />
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'>
-    <link type="text/css" href="lib/prod/jquery.jscrollpane.css" rel="stylesheet" media="all" />    
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'>  
 </head>
 
 <body oncopy="return false" oncontextmenu="return false">
@@ -32,7 +31,7 @@
        
             <div class="fixed_max linear ease_sd opacity_fff_9 top_max">
                 <div class="absolute_vert_center inline" style="height:5em;">
-                    <img src="svg/loading/loader_grey.gif" alt="" />
+                    <img src="assets/svg/loading/loader_grey.gif" alt="" />
                     <h2 class="txt_sm m_m_top">ADDING TO CART</h2>
                 </div>
             </div>																	<!-- Loader -->
@@ -42,7 +41,7 @@
     
     <div id="opening_load" class="absolute_max bg_fff middle linear">
     	<div class="absolute_vert_center inline" style="height:5em;">
-        	<img src="svg/loading/loader_grey.gif" alt="" />
+        	<img src="assets/svg/loading/loader_grey.gif" alt="" />
         	<h2 class="txt_sm m_m_top">LOADING...</h2>
         </div>
     </div>																	<!-- Loader -->
@@ -50,7 +49,7 @@
     <header class="prm box-shadow ease_sd pattern" style="margin-top:-3.8em;">
         <section class="align_ct">
             <a class="menu_lg_toggle clearfix fl_lt" href="#" ><span class="icon-paragraph-left txt_fff"></span></a>
-            <img id="header_logo" src="svg/advancedyou_fff.svg?v1.1" alt="" />
+            <img id="header_logo" src="assets/svg/advancedyou_fff.svg?v1.1" alt="" />
             <a class="link_line_bottom clearfix fl_rt" href="http://advancedlife.com.au/"><span class="icon-unlocked txt_fff"></span></a>
             <div class="clearfix"></div>
         </section>
@@ -122,7 +121,7 @@
                         	<span class="icon-info txt_fff txt_lg"></span>
                         </a>
                         
-                        <img id="img_loader" class="load_item" src="svg/loading/loader_grey.gif" alt="" />
+                        <img id="img_loader" class="load_item" src="assets/svg/loading/loader_grey.gif" alt="" />
                          
                         <a id="nav_lt" href="#" data-link_ref="nav_lt"><span class="icon-arrow-left txt_xl txt_fff fl_lt"></span></a>					<!-- id="nav_lt"  -->
                         <a id="nav_rt" href="#" data-link_ref="nav_rt"><span class="icon-arrow-right txt_xl txt_fff"></span></a>	<!-- id="nav_rt" -->
@@ -255,7 +254,7 @@
        
        <section class="clearfix"><a href="#" class="collapse"><span class="icon-cross txt_lg txt_ntl_m fl_rt"></span></a></section>
        	
-       <img class="absolute_vert_center opacity_0" src="svg/loading/loader_grey.gif" style="height:1.8em" alt="" />
+       <img class="absolute_vert_center opacity_0" src="assets/svg/loading/loader_grey.gif" style="height:1.8em" alt="" />
 
        <section id="additional_wrap" class="relative align_lt clearfix"></section>
        
@@ -333,6 +332,7 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js?v1.1"></script>
 <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<link type="text/css" href="lib/prod/jquery.jscrollpane.css" rel="stylesheet" media="all" />  
 <script type="text/javascript" src="lib/prod/project.min.js?v1.1"></script>      
 
 <script>
@@ -358,14 +358,14 @@ $(function()
     url = window.location.href;
     urlLength = url.length;
     sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
-    hasId = sicCode.search('userId=');
+    //hasId = sicCode.search('userId=');
 
     var startMenuControllers = new MenuControllers();
     var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
     var toTop = new ToTop('#to_top');
     
     // THE URL HAS NO ID SO WE NEED TO CREATE ONE
-    if(hasId < 0 )
+    /*if(hasId < 0 )
     {
         // ADD PORTAL END POINT FOR OUR USER
         if(schoolData[0].CssStyle == 'sports')
@@ -400,13 +400,13 @@ $(function()
                         var pageIsLoaded = new PageIsLoaded();
                     });
             });               
-    } else {
+    } else {*/
         // USER ID ALREADY ASSIGNED
-        console.log('user id already assigned: ', sicCode)
+        //console.log('user id already assigned: ', sicCode)
         var buildLinks = new BuildLinks('?SIC=' + sicCode );
         var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
         var pageIsLoaded = new PageIsLoaded();
-    }
+    //}
 
     var groupPage = new GroupsPage();
 

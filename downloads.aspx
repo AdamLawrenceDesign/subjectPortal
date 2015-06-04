@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page language="C#" autoeventwireup="true" inherits="_downloads, App_Web_-tibnddc" %>
+<%@ page language="C#" autoeventwireup="true" inherits="_downloads, App_Web_6uoppshz" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>				<!-- Detect Mobile devices -->
     <title>Portrait Downloads</title>
-    <link rel="shortcut icon" href="img/camera.png"> 								
+    <link rel="shortcut icon" href="assets/img/camera.png"> 								
     <link rel="stylesheet" href="lib/prod/screen.css?v1.1" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,500italic|Open+Sans:400,300,700,600,300italic' rel='stylesheet' type='text/css'/>
     <!--[if gte IE 9]>
@@ -22,8 +22,6 @@
     <input id="hFirstImgGroup" runat="server" type="hidden"/> <!--First Group Image-->																<!-- Nav -->
     <input id="hSchoolData" runat="server" type="hidden"/> <!--Client Information-->
     <input id="hPortraitData" runat="server" type="hidden"/> <!--Subject Information-->           
-	
-    <!-- Paste ASP Items not pad -->  
                
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>	<!--Arlen added Update ASP Ajax-->  
 
@@ -32,7 +30,7 @@
        
             <div class="fixed_max linear ease_sd opacity_fff_9 top_max">
                 <div class="absolute_vert_center inline" style="height:5em;">
-                    <img src="svg/loading/loader_grey.gif" alt="" />
+                    <img src="assets/svg/loading/loader_grey.gif" alt="" />
                     <h2 class="txt_sm m_m_top">ADDING TO CART</h2>
                 </div>
             </div>																	<!-- Loader -->
@@ -42,7 +40,7 @@
 
     <div id="opening_load" class="fixed_max bg_fff middle linear">
     	<div class="absolute_vert_center inline" style="height:5em;">
-        	<img src="svg/loading/loader_grey.gif" alt="" />
+        	<img src="assets/svg/loading/loader_grey.gif" alt="" />
         	<h2 class="txt_sm m_m_top">LOADING...</h2>
         </div>
     </div>																	<!-- Loader -->
@@ -50,7 +48,7 @@
     <header class="prm box-shadow ease_sd pattern" style="margin-top:-3.8em;">
         <section class="align_ct">
             <a class="menu_lg_toggle clearfix fl_lt" href="#" ><span class="icon-paragraph-left txt_fff"></span></a>
-            <img id="header_logo" src="svg/advancedyou_fff.svg?v1.1" alt="" />
+            <img id="header_logo" src="assets/svg/advancedyou_fff.svg?v1.1" alt="" />
             <a class="link_line_bottom clearfix fl_rt" href="http://advancedlife.com.au/"><span class="icon-unlocked txt_fff"></span></a>
             <div class="clearfix"></div>
         </section>
@@ -99,7 +97,7 @@
                         </div>
                         
                         <span class="load_item">
-                        	<img src="svg/loading/loader_grey.gif" alt="" />	<!-- svg/loading/loading-spinning-bubbles.svg -->
+                        	<img src="assets/svg/loading/loader_grey.gif" alt="" />	<!-- svg/loading/loading-spinning-bubbles.svg -->
                         </span>
                           
                         <ul id="image_list" class="clearfix products invisible">						<!-- Portraits -->
@@ -540,7 +538,7 @@
     
         <section class="p_l_top p_m">
         
-            <img src="svg/logo_fff.svg" class="clearfix m_l_top m_l_bottom" alt="" />
+            <img src="assets/svg/logo_fff.svg" class="clearfix m_l_top m_l_bottom" alt="" />
             
             <p>We are a proudly Australian family owned and operated business with over 30 years experience.</p>
                 
@@ -574,7 +572,7 @@
        
        <section class="clearfix"><a href="#" class="collapse"><span class="icon-cross txt_lg txt_ntl_m fl_rt"></span></a></section>
        	
-       <img class="absolute_vert_center opacity_0" src="svg/loading/loader_grey.gif" style="height:1.8em" alt="" />
+       <img class="absolute_vert_center opacity_0" src="assets/svg/loading/loader_grey.gif" style="height:1.8em" alt="" />
 
        <section id="additional_wrap" class="relative align_lt clearfix"></section>
        
@@ -669,7 +667,7 @@
 <script type="text/javascript" src="lib/src/js/ie-warning.js"></script>
 <script type="text/javascript" src="lib/src/js/analytics.js"></script>
 
-<script>
+<script type="text/javascript">
     var todaysDate, sic, userId, 
         schoolData = eval("[" + document.getElementById('hSchoolData').value + "]"),
         bannerImages = eval("[" + document.getElementById('hBannerImages').value + "]"),
@@ -679,7 +677,7 @@
         groupData = null;
 </script>
 
-<script>
+<script type="text/javascript">
 
 // INITIALISE THE CANVAS APP
 $(function()
@@ -693,13 +691,14 @@ $(function()
     url = window.location.href;
     urlLength = url.length;
     sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
-    hasId = sicCode.search('userId=');
+    //hasId = sicCode.search('userId=');
 
     var startMenuControllers = new MenuControllers();
     var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
     var toTop = new ToTop('#to_top');
 
     // THE URL HAS NO ID SO WE NEED TO CREATE ONE
+    /*
     if(hasId < 0 )
     {
         // ADD PORTAL END POINT FOR OUR USER
@@ -737,14 +736,14 @@ $(function()
                     });
             });       
                 
-    } else {
+    } else {*/
         // USER ID ALREADY ASSIGNED
-        console.log('user id already assigned')
+        //console.log('user id already assigned')
         var buildLinks = new BuildLinks('?SIC=' + sicCode );
         var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
         var pageIsLoaded = new PageIsLoaded();
-    }
-
+    //}
+   
     var downloadsInit = new DownloadsPage();
     // NOT SURE WHAT THIS IS
     /*

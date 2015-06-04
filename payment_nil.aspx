@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page language="C#" autoeventwireup="true" inherits="_paymentNil, App_Web_-tibnddc" %>
+<%@ page language="C#" autoeventwireup="true" inherits="_paymentNil, App_Web_6uoppshz" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>				<!-- Detect Mobile devices -->
@@ -323,40 +323,20 @@
         groupData = null,
         count = 0;    
 </script>
-
 <script type="text/javascript">
-
 $(function()
-{       
-    //comment -Arlen
-	/*var Data = eval("[" + document.getElementById('hPortraitData').value + "]"),
-		FirstName = Data[0].FirstName,
-		LastName = Data[0].LastName,
-		Class = Data[0].Folder;
-	$('#Student').val(FirstName + ' ' + LastName + ', ' + Class);
-	console.log($('#Student').val())*/
-		
-		
-	//Added links script from cart page - Arlen	
-	function CreateLinks()
-    {	
-		var data =  eval("[" + document.getElementById('hFirstImgPortrait').value + "]");
-		var sic = data[0].SIC;
-		$('.index').attr( 'href' , 'index.aspx?SIC=' + sic );
-		$('.downloads').attr( 'href' , 'downloads.aspx?SIC=' + sic );
-		$('.group_img').attr( 'href' , 'group_img.aspx?SIC=' + sic );
-		$('.packages').attr( 'href' , 'packages.aspx?SIC=' + sic );
-		$('.gift_items').attr( 'href' , 'gift_items.aspx?SIC=' + sic );
-		$('.payment').attr( 'href' , 'payment.aspx?SIC=' + sic );
-		$('.thank_you').attr( 'href' , 'thank_you.aspx?SIC=' + sic );
-		$('.cart').attr( 'href' , 'cart.aspx?SIC=' + sic );
-		$('.contact_us').attr( 'href' , 'contact_us.aspx?SIC=' + sic );	
-	};
-	
-	CreateLinks();
-		
-});
+{          
+    var url, urlLength, sicCode, hasId, portalType;
 
+    // PARSE URL 
+    url = window.location.href;
+    urlLength = url.length;
+    sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
+    
+    var buildLinks = new BuildLinks('?SIC=' + sicCode );
+    var addPageStyle = new PageStyle(schoolData[0].CssStyle);        
+    var pageIsLoaded = new PageIsLoaded();
+});
 </script>
 
 </body>
