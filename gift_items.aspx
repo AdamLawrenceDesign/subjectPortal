@@ -375,7 +375,7 @@ $(function()
     url = window.location.href;
     urlLength = url.length;
     sicCode = url.slice(url.search("aspx") + 4, url.length).replace('?SIC=', '').replace(/#/g, '');
-    userId = url.slice(url.search("userId=") + 7, url.search("&end")).replace(/#/g, '');
+    userId = url.slice(url.search("userId=") + 7, url.length).replace(/#/g, '');
 
     var startMenuControllers = new MenuControllers();
     var setupPageInfo = new PageInfo(schoolData, bannerImages, firstPortraitData, firstGroupData);
@@ -415,7 +415,7 @@ $(function()
                 'userId': userId,
                 'id1' : userData[0].SIC,                      // WHEN DOING THIS FOR THE COMMUNITY PORTAL USE THE ENCRYPTED LINK
                 'id2' : userData[0].PrimarySubjectID,
-                'id3' : '',
+                'id3' : schoolData[0].CssStyle,
                 'firstName' : userData[0].FirstName,
                 'lastName' : userData[0].LastName,                      
         };
